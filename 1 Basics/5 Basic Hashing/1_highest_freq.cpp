@@ -6,55 +6,74 @@ class Solution
 public:
     void map_hashing(vector<int> nums)
     {
-        unordered_map<int, int> count;
+        unordered_map<int, int> counter;
         for (int i = 0; i < nums.size(); i++)
         {
-            count[nums[i]]++;
+            counter[nums[i]]++;
         }
-        int max_n= 0, min_n=0;
-        for(auto it:count){
-            int freq = it.second;
-            if (freq > max_n) {
-                max_n = freq;
+        int maxFreq = 0, minFreq = nums.size();
+        int maxEle , minEle;
+        for (auto it : counter)
+        {
+            int count = it.second;
+            int element = it.first;
+
+            if (count > maxFreq)
+            {
+                maxEle = element;
+                maxFreq = count;
             }
-            if (freq < min_n) {
-                min_n = freq;
+            if (count < minFreq)
+            {
+                minEle = element;
+                minFreq = count;
             }
         }
-        cout << "The highest frequency element is: " << max_n << "\n";
-        cout << "The lowest frequency element is: " << min_n << "\n";
+        cout << "The highest frequency element is: " << maxEle << "\n";
+        cout << "The lowest frequency element is: " << minEle << "\n";
     }
-    // vector<int> array_hashing(int n, int x, vector<int> &nums)
-    // {
-    //     vector<int> ans(n, 0);
-    //     for (int i = 0; i < n; i++)
-    //     {
-    //         ans[nums[i] - 1]++;
-    //     }
-    //     return ans;
-    // }
+    void array_hashing(vector<int> &nums)
+    {
+        vector<int> counter(nums.size());
+        for (int i = 0; i < nums.size(); i++)
+        {
+            counter[nums[i]-1]++; // Normalizing by -1 since the elements start at 1
+        }
+        int maxFreq = 0, minFreq = nums.size();
+        int maxEle , minEle;
+        for (int i=0;i<counter.size() && counter[i]!=0;i++) // As counter gets initialized to length equal to nums, rest size will be 0
+        {
+            int count = counter[i];
+            int element = i+1;
+
+            if (count > maxFreq)
+            {
+                maxEle = element;
+                maxFreq = count;
+            }
+            if (count < minFreq)
+            {
+                minEle = element;
+                minFreq = count;
+            }
+        }
+        cout << "The highest frequency element is: " << maxEle << "\n";
+        cout << "The lowest frequency element is: " << minEle << "\n";
+    }
 };
+
 int main() {
-    // Sample usage
+
     Solution solution;
 
-    // Example input
-    vector<int> nums;
-    nums.push_back(1);
-    nums.push_back(2);
-    nums.push_back(2);
-    nums.push_back(3);
-    nums.push_back(3);
-    nums.push_back(3);
-    nums.push_back(4);
-    nums.push_back(4);
-    nums.push_back(4);
-    nums.push_back(4);
-    nums.push_back(5);
-    nums.push_back(5);
-
-    // Calling the map_hashing function
+    vector<int> nums = {1, 2, 2, 3, 3, 3};
+    cout << "Using map_hashing method:\n";
     solution.map_hashing(nums);
+
+    int n = 6;
+    vector<int> nums2 = {1, 2, 2, 3, 3, 3};
+    cout << "Using array_hashing method:\n";
+    solution.array_hashing(nums2);
 
     return 0;
 }
