@@ -9,7 +9,7 @@ using namespace std;
 class Solution
 {
 public:
-    void heap_sort(vector<int> &nums) // same as insetion sort just replace 1 with gap and add for loop for decreasing gap
+    void bubble_sort(vector<int> &nums) // same as insetion sort just replace 1 with gap and add for loop for decreasing gap
     {
         for (int gap = nums.size() / 2; gap > 0; gap /= 2)
         {
@@ -32,7 +32,7 @@ int main()
 
     vector<int> nums = {13, 46, 24, 52, 20, 9};
 
-    solution.heap_sort(nums);
+    solution.bubble_sort(nums);
 
     for (int x : nums)
     {

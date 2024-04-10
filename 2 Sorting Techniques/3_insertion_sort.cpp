@@ -10,10 +10,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class Solution
+class Solution_1
 {
 public:
-    void heap_sort(vector<int> &nums)
+    void insertion_sort(vector<int> &nums)
     {
         for (int i = 1; i < nums.size(); i++) // unlike bubble sort and selection sort can't ignore the last element but can ignore the first element
         {
@@ -26,13 +26,33 @@ public:
         }
     }
 };
+
+class Solution_2
+{
+public:
+    void insertion_sort(vector<int> &nums, int n)
+    {
+        if (n == 1)
+            return;
+        
+        insertion_sort(nums, n-1);
+
+        for (int j = n; j >= 1 && nums[j] < nums[j - 1]; j--)
+        {
+            int temp = nums[j];
+            nums[j] = nums[j - 1];
+            nums[j - 1] = temp;
+        }
+    }
+};
+
 int main()
 {
-    Solution solution;
+    Solution_1 solution;
 
     vector<int> nums = {13, 46, 24, 52, 20, 9};
 
-    solution.heap_sort(nums);
+    solution.insertion_sort(nums);
 
     for (int x : nums)
     {
@@ -45,4 +65,3 @@ int main()
 // Time Complexity: O(n^2) (worst and average case) n (best case)
 // Worst case: sorted in descending order, best case: sorted in ascending order)
 // Space Complexity: O(1)
-

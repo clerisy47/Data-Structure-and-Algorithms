@@ -15,7 +15,7 @@ using namespace std;
 class Solution
 {
 public:
-    void heap_sort(vector<int>& nums)
+    void selection_sort(vector<int>& nums)
     {
         for(int i=0; i< nums.size()-1; i++){
             int min_i = i;
@@ -38,7 +38,7 @@ int main()
 
     vector<int> nums = {13, 46, 24, 52, 20, 9 };
 
-    solution.heap_sort(nums);
+    solution.selection_sort(nums);
 
     for(int x: nums){
         cout<< x<< " ";
