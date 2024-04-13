@@ -17,9 +17,9 @@ class Solution
 public:
     void selection_sort(vector<int>& nums)
     {
-        for(int i=0; i< nums.size()-1; i++){
+        for(int i=0; i<= nums.size()-2; i++){
             int min_i = i;
-            for(int j=i+1; j<nums.size(); j++){
+            for(int j=i+1; j<=nums.size()-1; j++){
                 if(nums[j]<nums[min_i]){
                     min_i = j;
                 }

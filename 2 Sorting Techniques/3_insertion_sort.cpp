@@ -15,7 +15,7 @@ class Solution_1
 public:
     void insertion_sort(vector<int> &nums)
     {
-        for (int i = 1; i < nums.size(); i++) // unlike bubble sort and selection sort can't ignore the last element but can ignore the first element
+        for (int i = 1; i <= nums.size()-1; i++) // unlike bubble sort and selection sort can't ignore the last element but can ignore the first element
         {
             for (int j = i; j >= 1 && nums[j] < nums[j - 1]; j--)
             {

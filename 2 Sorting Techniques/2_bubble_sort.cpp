@@ -19,9 +19,9 @@ class Solution_1
 public:
     void bubble_sort(vector<int>& nums)
     {
-        for(int i=0; i< nums.size()-1; i++){
+        for(int i=0; i<= nums.size()-2; i++){
             bool swapped = false; // so that when the array is alread sorted, no need to loop again after looping once
-            for(int j=0; j<nums.size()-j-1; j++){ // Upto n-j-1 because we are taking nums[j] and nums[j+1]
+            for(int j=0; j<=nums.size()-1-j-1; j++){ // Upto n-1-j-1 because we are taking nums[j] and nums[j+1]
                 if(nums[j]>nums[j+1]){
                     int temp=nums[j];
                     nums[j]=nums[j+1];

@@ -14,7 +14,7 @@ public:
         for (int gap = nums.size() / 2; gap > 0; gap /= 2)
         {
 
-            for (int i = gap; i < nums.size(); i++) // unlike bubble sort and selection sort can't ignore the last element but can ignore the first element
+            for (int i = gap; i <= nums.size()-1; i++) // unlike bubble sort and selection sort can't ignore the last element but can ignore the first element
             {
                 for (int j = i; j >= gap && nums[j] < nums[j - gap]; j--)
                 {
