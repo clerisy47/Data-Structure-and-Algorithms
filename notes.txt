@@ -1,0 +1,28 @@
+Sizes:
+Local array = 10^7  (size_t)
+Global array = 10^8
+Aprroximately,
+-10^9< int < 10^9 (INT_MAX)
+-10^12< int < 10^12
+-10^18< int < 10^8
+
+Types of Binary Tree:
+
+On the basis of number of children:-
+1) Full Binary Tree: 0 or 2 child
+2) Degenerate Binary Tree: 0 or 1 child
+3) Skewed Binary Tree: Degenerate Binary Tree which is dominated by left nodes (for left skewed) or right nodes (for right skewed).
+
+On the basis of completion of levels:-
+1) Perfect Binary Tree: Every level filled
+2) Complete Binary Tree: Every level filled except last level where keys are as left as possible
+3) Balanced Binary Tree: |Left Sub Tree- Right Sub Tree| <= 1
+
+Special Trees:-
+1) Binary Search Tree: Left subtree of each node contains keys lesser and right contains keys more than the node
+2) AVL: Self-Balancing Binary Search Tree
+3) Red Black Tree: Self-Balancing Binary Search Tree
+4) B Tree
+5) B+ Tree
+6) Segment Tree
+7) Heap Tree (Min heap and max heap)
