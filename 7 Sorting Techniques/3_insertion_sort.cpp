@@ -10,56 +10,33 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class Solution_1
+void insertion_sort(vector<int> &nums)
 {
-public:
-    void insertion_sort(vector<int> &nums)
+    for (int i = 1; i <= nums.size() - 1; i++) // unlike bubble sort and selection sort can't ignore the last element but can ignore the first element
     {
-        for (int i = 1; i <= nums.size()-1; i++) // unlike bubble sort and selection sort can't ignore the last element but can ignore the first element
-        {
-            for (int j = i; j >= 1 && nums[j] < nums[j - 1]; j--)
-            {
-                int temp = nums[j];
-                nums[j] = nums[j - 1];
-                nums[j - 1] = temp;
-            }
-        }
-    }
-};
-
-class Solution_2
-{
-public:
-    void insertion_sort(vector<int> &nums, int n)
-    {
-        if (n == 1)
-            return;
-        
-        insertion_sort(nums, n-1);
-
-        for (int j = n; j >= 1 && nums[j] < nums[j - 1]; j--)
+        for (int j = i; j >= 1 && nums[j] < nums[j - 1]; j--)
         {
             int temp = nums[j];
             nums[j] = nums[j - 1];
             nums[j - 1] = temp;
         }
     }
-};
+}
 
-int main()
+// Recursive Approach
+void insertion_sort(vector<int> &nums, int n)
 {
-    Solution_1 solution;
+    if (n == 1)
+        return;
 
-    vector<int> nums = {13, 46, 24, 52, 20, 9};
+    insertion_sort(nums, n - 1);
 
-    solution.insertion_sort(nums);
-
-    for (int x : nums)
+    for (int j = n; j >= 1 && nums[j] < nums[j - 1]; j--)
     {
-        cout << x << " ";
+        int temp = nums[j];
+        nums[j] = nums[j - 1];
+        nums[j - 1] = temp;
     }
-
-    return 0;
 }
 
 // Time Complexity: O(n^2) (worst and average case) n (best case)

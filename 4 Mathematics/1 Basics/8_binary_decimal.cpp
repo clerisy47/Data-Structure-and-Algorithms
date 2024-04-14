@@ -1,25 +1,22 @@
 #include <bits/stdc++.h>
-class Solution
+
+int binary_decimal(long n)
 {
-public:
-    int binary_decimal(long n)
+    int result = 0;
+    for (int i = 0; n != 0; i++)
     {
-        int result = 0;
-        for (int i = 0; n != 0; i++)
-        {
-            int rem = n % 10;
-            result += rem * pow(2, i);
-            n /= 10;
-        }
+        int rem = n % 10;
+        result += rem * pow(2, i);
+        n /= 10;
     }
-    long decimal_binary(int n)
+}
+long decimal_binary(int n)
+{
+    long result = 0;
+    for (int i = 0; n != 0; i++)
     {
-        long result = 0;
-        for (int i = 0; n != 0; i++)
-        {
-            int rem = n % 2;
-            result += rem * pow(10, i);
-            n /= 2;
-        }
+        int rem = n % 2;
+        result += rem * pow(10, i);
+        n /= 2;
     }
-};
+}

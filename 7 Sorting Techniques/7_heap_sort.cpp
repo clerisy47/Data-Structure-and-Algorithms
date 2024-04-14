@@ -9,61 +9,42 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class Solution
+void heapify(vector<int> &nums, int n, int i)
 {
-public:
-    void heapify(vector<int> &nums, int n, int i)
+    int largest = i;
+    int l = 2 * i + 1;
+    int r = 2 * i + 2;
+
+    if (l < n && nums[l] > nums[largest])
     {
-        int largest = i;
-        int l = 2 * i + 1;
-        int r = 2 * i + 2;
-
-        if (l < n && nums[l] > nums[largest])
-        {
-            largest = l;
-        }
-
-        if (r < n && nums[r] > nums[largest])
-        {
-            largest = r;
-        }
-
-        if (largest != i)
-        {
-            swap(nums[i], nums[largest]);
-            heapify(nums, n, largest);
-        }
+        largest = l;
     }
 
-    void heap_sort(vector<int> &nums)
+    if (r < n && nums[r] > nums[largest])
     {
-       int  n = nums.size();
-        for (int i = nums.size()/ 2 - 1; i >= 0; i--)
-            heapify(nums, nums.size(), i);
-
-        for (int i = nums.size()- 1; i > 0; i--)
-        {
-
-            swap(nums[0], nums[i]);
-
-            heapify(nums, i, 0);
-        }
+        largest = r;
     }
-};
-int main()
+
+    if (largest != i)
+    {
+        swap(nums[i], nums[largest]);
+        heapify(nums, n, largest);
+    }
+}
+
+void heap_sort(vector<int> &nums)
 {
-    Solution solution;
+    int n = nums.size();
+    for (int i = nums.size() / 2 - 1; i >= 0; i--)
+        heapify(nums, nums.size(), i);
 
-    vector<int> nums = {13, 46, 24, 52, 20, 9};
-
-    solution.heap_sort(nums);
-
-    for (int x : nums)
+    for (int i = nums.size() - 1; i > 0; i--)
     {
-        cout << x << " ";
-    }
 
-    return 0;
+        swap(nums[0], nums[i]);
+
+        heapify(nums, i, 0);
+    }
 }
 
 // Time Complexity: O(nlogn)

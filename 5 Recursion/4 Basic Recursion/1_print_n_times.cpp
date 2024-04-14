@@ -1,31 +1,24 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class Solution
+void printNTimes(int n)
 {
-public:
-    void printNTimes(int n)
+
+    if (n == 0)
     {
-
-        if (n == 0)
-        {
-            return;
-        }
-        printNTimes(n - 1);
-        cout << "Utsav"<< " ";
-
-
- 
+        return;
     }
-};
+    printNTimes(n - 1);
+    cout << "Utsav"
+         << " ";
+}
+
 int main()
 {
     int n;
-    Solution sol;
     cout << "Enter the number of times to print: ";
     cin >> n;
-
-    sol.printNTimes(n);
+    printNTimes(n);
 
     return 0;
 }
