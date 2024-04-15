@@ -14,7 +14,7 @@ int main(){
     cout<< (s.find("poop")==s.end()); // 1: Not Present 0: Present O(1)
     cout<<endl;
 
-    // Insertion and acess is O(logn)
+    // Insertion and acess is O(logn) where n varies according to the size of set
     // Duplicates can be used
     // It will sort like regular sets as it is implemented in similar way ie red black trees (self balancing trees)
 

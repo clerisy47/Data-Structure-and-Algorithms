@@ -30,6 +30,9 @@ int main(){
     }
     printVec(v);
 
+    reverse(v.begin(),v.end()); // For arrays, reverse(arr, arr+n);
+    printVec(v);
+
     v.pop_back(); // O(1)
     printVec(v);
 
@@ -41,7 +44,7 @@ int main(){
     // Copying of vectors are shallow copy by default
     vector<int> v_copy = v;
     v.push_back(7);
-    printVec(v);
+    printVec(v_copy);
 
     // Pass by value
     pass_by_value(v);
