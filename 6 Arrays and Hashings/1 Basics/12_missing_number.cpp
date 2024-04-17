@@ -38,7 +38,7 @@ int missingNumber(vector<int> &a, int N)
     return N*(N+1)/2-sum; 
 }
 
-// XOR Bit Manipulation
+// XOR
 // Memory Efficient
 int missingNumber(vector<int> &a, int N)
 {   int xor1=0, xor2=0;

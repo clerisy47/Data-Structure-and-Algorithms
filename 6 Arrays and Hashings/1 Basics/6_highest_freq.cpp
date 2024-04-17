@@ -31,8 +31,8 @@ void map_hashing(vector<int> nums)
 }
 void array_hashing(vector<int> &nums)
 {
-    vector<int> counter(nums.size());
-    for (int i = 0; i < nums.size(); i++)
+    vector<int> counter(nums.size()); // Size of hash vector is equal to the maximum number in an array
+    for (int i = 0; i <= nums.size()-1; i++)
     {
         counter[nums[i] - 1]++; // Normalizing by -1 since the elements start at 1
     }
@@ -41,7 +41,7 @@ void array_hashing(vector<int> &nums)
     for (int i = 0; i < counter.size() && counter[i] != 0; i++) // As counter gets initialized to length equal to nums, rest size will be 0
     {
         int count = counter[i];
-        int element = i + 1;
+        int element = i + 1; // Denormalizaing
 
         if (count > maxFreq)
         {
