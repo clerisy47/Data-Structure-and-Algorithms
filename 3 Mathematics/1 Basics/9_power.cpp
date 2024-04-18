@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// Brute Force
 double power(double x, int n)
 {
     double ans = 1.0;
@@ -15,9 +16,11 @@ double power(double x, int n)
     }
     return ans;
 }
-// Time Complexity: O(n) (Not optimal)
+// Time Complexity: O(n)
 
-double power_optimial(double x, int n)
+
+// Optimal
+double power(double x, int n)
 {
     double ans = 1.0;
     if (n < 0)

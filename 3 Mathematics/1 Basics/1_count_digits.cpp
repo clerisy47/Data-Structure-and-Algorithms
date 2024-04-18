@@ -1,20 +1,36 @@
-// https://leetcode.com/problems/count-the-digits-that-divide-a-number/
+#include<bits/stdc++.h>
+using namespace std;
 
+// Brute Force
 int countDigits(int num)
 {
-    int count = 0, rem, copy_num = num;
-    while (copy_num != 0)
+    int count = 0, rem;
+    while (num != 0)
     {
-        rem = copy_num % 10;
-        if (num % rem == 0)
-            count += 1;
-        copy_num /= 10;
+        rem = num % 10;
+        count += 1;
+        num /= 10;
     }
     return count;
 }
+// TC: O(log10(n))
+// SC: O(1)
 
-// Time Complexity: O(log10n)
+//Optimal assuming num is natural number
+int countDigits(int num)
+{
+    return floor(log10(num)) + 1;
+}
 
-// if simply count the digits then
-// everytime loops run count+=1
+// TC: O(1)
+// SC: O(1)
+
+
+
+int main(){
+    
+    return 0;
+}
+
+
 // floor(log10(x)) + 1  for best time and space complexity

@@ -16,11 +16,13 @@ void pass_by_reference(vector<int> &v){ // do this. its shallow copy so O(1) com
     v.push_back(47);
 }
 
+
 int main(){
 
     // input and printing
     vector<int> v;
     //v = {1, 2, 3, 4, 5};
+    // vector<int> v(begin(arr), end(arr))
     int n;
     cin>> n;
     for(int i=0; i<n; i++){
@@ -30,7 +32,10 @@ int main(){
     }
     printVec(v);
 
-    reverse(v.begin(),v.end()); // For arrays, reverse(arr, arr+n);
+    reverse(v.begin(),v.end()); // For arrays, reverse(arr, arr+n); or rev(begin(arr), end(arr))
+    printVec(v);
+
+    next_permutation(v.begin(), v.end());
     printVec(v);
 
     v.pop_back(); // O(1)
