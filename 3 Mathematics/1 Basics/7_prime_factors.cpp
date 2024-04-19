@@ -1,27 +1,42 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void primeFactors(int n)
-{
-    if (n <= 1)
-    {
-        cout << "No prime factors" << endl;
-        return;
+// Brute
+bool isPrime(int n){
+    if(n==1) return false;
+    for(int i=2;i<=sqrt(n);i++){
+        if(n%i==0) return false;
     }
-    int i = 2;
-    int copy_n = n;
-    while (i < n)
-    {
-        if (copy_n % i == 0)
-        {
-            cout << i << " ";
-            copy_n /= i;
-        }
-        else
-        {
-            i++;
-        }
-    }
-    if (copy_n > 1)
-        cout << n; // it means it is a prime number itself
+    return true;
 }
+
+vector<int> primeFactos(int n)
+{
+    vector<int> ans;
+    for(int i=2;i<=n;i++){
+        if(n%i==0){
+            if(isPrime(i)) ans.push_back(i);
+        }
+    }
+    return ans;
+}
+
+vector<int> primeFactors(int n)
+{
+    vector<int> output;
+    int i = 2;
+    for(int i=2; i*i<=n;i++)
+    {
+        if (n % i == 0)
+        {
+            output.push_back(i);
+            while(n%i==0)
+                n /= i;
+        }
+    }
+    if(n!=1) output.push_back(n); // to insert factor that comes after i*i<=n
+    return output;
+}
+
+// TC: O(sqrtn*logn)
+// SC: O(x)

@@ -2,7 +2,7 @@
 using namespace std;
 
 void printVec(vector<int> &v){ 
-    for(int i=0; i<v.size(); i++){
+    for(int i=0; i<v.size(); i++){ // for arrays size(arr) using stl or simply sizeof(arr)/sizeof(arr[0])  
         cout<<v[i]<<" ";
     }
     cout<<endl;

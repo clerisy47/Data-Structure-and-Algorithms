@@ -21,15 +21,8 @@ vector<int> sieve_of_erastosthenes(int n)
         }
     }
     return primes;
-    // Time Complexity: O(n * log log n)
+    // Time Complexity: O(n * log log n +n)
     // Space Complexity: O(n)
-}
-
-int smallest_prime(int n, vector<int> &primes)
-{
-    return primes[n];
-    // Time Complexity: O(r-l) + O(n * log log n)
-    // Space Complexity: O(r-l)
 }
 
 int main()
@@ -40,7 +33,7 @@ int main()
     for (int i = 0; i <= q - 1; i++)
     {
         cin >> n;
-        cout << smallest_prime(n, primes) << endl;
+        cout << primes[n] << endl;
     }
     return 0;
 }

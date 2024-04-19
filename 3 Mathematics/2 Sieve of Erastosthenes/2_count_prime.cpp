@@ -24,7 +24,7 @@ vector<int> sieve_of_erastosthenes(int n)
         primes[i] += primes[i - 1];
     }
     return primes;
-    // Time Complexity: O(n * log log n)
+    // Time Complexity: O(n * log log n+n)
     // Space Complexity: O(n)
 }
 
