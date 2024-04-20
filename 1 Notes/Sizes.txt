@@ -1,4 +1,18 @@
 Sizes:
+
+Note: 1 byte = 8 bits
+THese measurements can vary according to system can be viewed by sizeof() operator
+
+bool: 1 byte (even though theoretically it can be stored into 1 bit)
+char: 1 byte
+short: 2 bytes
+int: 2-4 bytes
+long: at least 4 bytes
+long long: 8 bytes
+float: 4 bytes
+double: 8 bytes
+
+
 Local array = 10^7  (size_t)
 Global array = 10^8
 
