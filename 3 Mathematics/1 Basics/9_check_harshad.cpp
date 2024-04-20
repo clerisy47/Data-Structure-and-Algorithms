@@ -1,5 +1,4 @@
-// Harshad or n is a number that can be divided by its sum of digits
-
+// A harshad number in a given number base is an integer that is divisible by the sum of its digits when written in that base. 
 bool checkHarshad(int n)
 {
     int sum = 0;
