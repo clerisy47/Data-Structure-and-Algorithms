@@ -1,7 +1,9 @@
+// Single number 2 and 3 in bit manipulation folder
+
 #include<bits/stdc++.h>
 using namespace std;
 
-//Brute Force Approach
+//Brute Force Approach (Can be applied for single number 2 and 3 as well)
 int getSingleElement(vector<int> &arr){
     int n = arr.size();
     for(int i=0; i<=n-1;i++){
@@ -13,7 +15,7 @@ int getSingleElement(vector<int> &arr){
     }     
 }
 
-//Array Hashing
+//Array Hashing (Can be applied for single number 2 and 3 as well)
 int getSingleElement(vector<int> &arr){
     int max=arr[0];
     int n = arr.size();
@@ -33,7 +35,7 @@ int getSingleElement(vector<int> &arr){
     }     
 }
 
-// Hashmap Hashing
+// Hashmap Hashing (Can be applied for single number 2 and 3 as well)
 int getSingleElement(vector<int> &arr){
     int max = arr[0];
     int n = arr.size();
@@ -57,17 +59,9 @@ int getSingleElement(vector<int> &arr){
     }
 }
 
-//XOR
+// Better (Can be applied for single number 2 and 3 as well)
 int getSingleElement(vector<int> &arr){
-	int xor1=0;	
-    for(int i=0; i<=arr.size()-1;i++){
-        xor1^=arr[i];
-    }
-	return xor1;   
-}
-
-//Optmial Approach
-int getSingleElement(vector<int> &arr){
+    sort(arr.begin(), arr.end());
 	int i;	
     for(i=0; i<=arr.size()-2;i+=2){
         if(arr[i]!=arr[i+1]){
@@ -76,6 +70,17 @@ int getSingleElement(vector<int> &arr){
     }
 	return arr[i];   
 }
+
+// Bit Manipulation (Optimal approach) (Bit manipulation of single number 2 and single number 3 in bit manipulation folder)
+int getSingleElement(vector<int> &arr){
+	int xor_ones=0;	
+    for(int i=0; i<=arr.size()-1;i++){
+        xor_ones^=arr[i];
+    }
+	return xor_ones;   
+}
+
+
 
 int main(){
     
