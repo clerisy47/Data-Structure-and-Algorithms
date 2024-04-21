@@ -4,10 +4,11 @@
 using namespace std;
 
 // Unsorted arrays
-int linearSearch(int n, int num, vector<int> &arr)
+int linearSearch(int k, vector<int> &arr)
 {
+    int n = arr.size();
     for(int i=0;i<=n-1;i++){
-        if(arr[i]==num) return i;
+        if(arr[i]==k) return i;
     }
     return -1;
 }
@@ -15,18 +16,29 @@ int linearSearch(int n, int num, vector<int> &arr)
 
 
 // Sorted arrays
-int binarySearch(int n, int num, vector<int> &arr)
+int binarySearch(int k, vector<int> &arr)
 {
+    int n = arr.size();
     int left=0, right=n-1;
     while(left<=right){
-        int mid = (left+right)/2;
-        if(arr[mid]==num) return mid;
-        else if(arr[mid]<num) left = mid+1;
-        else right = mid-1;
+        // int mid = (left+right)/2;
+        int mid = left + (right-left)/2; //(avoids overflow_error)
+        if(arr[mid]==k) return mid;
+        else if(arr[mid]>k) right = mid-1;
+        else left=mid+1;
     }
     return -1;
 }
 // Time Complexity: O(logn)
 
-
+int recursiveBinarySearch(int k, vector<int> &arr, int left, int right)
+{
+    int answer;
+    if(left>right) return -1;
+    int mid = left + (right-left)/2;
+    if(k==arr[mid]) return mid;
+    else if(k<arr[mid]) return recursiveBinarySearch(k, arr, left, mid-1);
+    else  return recursiveBinarySearch(k, arr, mid+1, right);
+    return answer;
+}
 
