@@ -10,21 +10,22 @@ int facto(int n) {
 	}
 	return ans;
 }
-int permutation(int n, int r){
-    return facto(n)/facto(n-r);
-}
+// int nPr(int n, int r){
+//     return facto(n)/facto(n-r);
+// }
 
 // Optimized
 // Expanding formula of permutation
-int permutation(int n, int r){
+int nPr(int n, int r){
     int ans = 1;
-	for (int i = n; i >= n - r + 1; i--) {
-		ans *= i;
+	for (int i = 0; i <= r - 1; i++) {
+		ans *= (n-i);
 	}
+	return ans;
 }
 
 
 int main(){
-    
+    cout<<nPr(5, 3);
     return 0;
 }
