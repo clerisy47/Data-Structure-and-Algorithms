@@ -21,3 +21,5 @@ Approximately,
 (LONG_MIN) -10^12< long < 10^12 (LONG_MAX)
 (LLONG_MIN) -10^18< long long < 10^18 (LLONG_MAX)
 Similarly, FLT_MIN, DBL_MIN, FLT_MAX and DBL_MAX
+
+Number of iterations in one 7: 10^7
