@@ -20,6 +20,18 @@ double power(double x, int n)
 
 
 // Optimal
+// Binary eEponentiation
+
+// recursion
+double power(double x, int n)
+{
+    if(n==0) return 1.0;
+    if (n < 0) return power(1/x, -n);
+    if (n % 2 == 0) return power(x*x, n/2);
+    return x*power(x,n-1);
+}
+
+// iteration
 double power(double x, int n)
 {
     double ans = 1.0;
@@ -30,15 +42,16 @@ double power(double x, int n)
     }
     while (n > 0)
     {
-        if (n % 2 != 0)
-        {
-            ans = ans * x;
-            n = n - 1;
-        }
-        else
+        if (n % 2 == 0)
         {
             x = x * x;
             n /= 2;
+
+        }
+        else
+        {
+            ans *= x;
+            n--;
         }
     }
     return ans;
