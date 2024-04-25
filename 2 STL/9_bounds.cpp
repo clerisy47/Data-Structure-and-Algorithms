@@ -1,4 +1,4 @@
-// search: smallest index such that arr[i]==k (target)
+// find: smallest index such that arr[i]==k (target)
 // lower_bound: smallest index such that arr[i]>=k (target)
 // upper_bound: smallest index such that arr[i]>k (target)
 // if all elements are smaller than target it returns length of array ie hypothetical index (n)
@@ -18,6 +18,8 @@ void printVec(vector<int> &v){
 int main(){
 
     vector<int> v = {4, 6, 8, 25, 7};
+
+    auto loc = find(v.begin(), v.end(), 4); // returns index if present or returns end index
 
     auto bound = lower_bound(v.begin(), v.end(), 6);
     cout<< bound-v.begin()<<endl; // 1
