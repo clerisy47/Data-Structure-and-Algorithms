@@ -15,7 +15,6 @@ int main(){
     int max = *max_element(v.begin(), v.end()); // ie for an array reference, for a vector iterator but both can be dereferenced with *
     int sum = accumulate(v.begin(), v.end(), 0); // 0 is initial sum doesn't return pointer
     int ct = count(v.begin(), v.end(), 4);
-    auto loc = find(v.begin(), v.end(), 4); // returns index if present or returns end index
     cout<<min<<" "<<max<<" "<<sum<<" "<<ct<<endl;
 
     reverse(v.begin(), v.end());
@@ -24,4 +23,5 @@ int main(){
     cout<< any_of(v.begin(), v.end(),[](int x){ return x>5;})<<" "; // returns 1(true)
     cout<< none_of(v.begin(), v.end(),[](int x){ return x>5;})<<" "; // returns 0(false)
 
+    cout<<__gcd(5, 6);
 }
