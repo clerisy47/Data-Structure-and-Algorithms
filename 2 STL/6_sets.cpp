@@ -23,6 +23,9 @@ int main(){
     ms.insert("b");
     ms.insert("c");
     ms.insert("a");
+    // Deletes individual values: ms.erase(iterators);        
+    // Delete all values: ms.erase(value);
+
 
     for(auto x:ms){
         cout<<x<<" ";
