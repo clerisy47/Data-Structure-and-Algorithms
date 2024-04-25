@@ -41,7 +41,7 @@ int main(){
     v.pop_back(); // O(1)
     printVec(v);
 
-    vector<int> v_zeroes(10);
+    vector<int> v_zeroes(10); //     int arr[n]; fill_n(arr, n, -1);
     printVec(v_zeroes);
     vector<int> v_ones(10, 1);
     printVec(v_ones);
