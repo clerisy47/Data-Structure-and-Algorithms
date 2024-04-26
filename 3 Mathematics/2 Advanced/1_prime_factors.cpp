@@ -21,6 +21,7 @@ vector<int> primeFactos(int n)
     return ans;
 }
 
+// Optimal
 vector<int> primeFactors(int n)
 {
     vector<int> output;
