@@ -5,11 +5,11 @@ using namespace std;
 
 int DP[1000];
 // Basic Recursion
-int Fibonacci(int n)
+int fibonacci(int n)
 {
     if (n == 0 || n == 1)
         return n;
-    return (Fibonacci(n - 1) + Fibonacci(n - 2));
+    return (fibonacci(n - 1) + fibonacci(n - 2));
 }
 
 // Time Complexity O(2^n)
@@ -17,20 +17,20 @@ int Fibonacci(int n)
 
 
 // Memoization
-int Fibonacci(int n)
+int fibonacci(int n)
 {
     if (n == 0 || n == 1)
         return n;
     if(DP[n]!=-1)
     return DP[n];
 
-    return DP[n] = (Fibonacci(n - 1) + Fibonacci(n - 2));
+    return DP[n] = (fibonacci(n - 1) + fibonacci(n - 2));
 }
 // Time Complexity O(n)
 // Space Complexity O(n)
 
 // Dynamic Programming
-int Fibonacci(int n)
+int fibonacci(int n)
 {
     DP[0]=0;
     DP[1]=1;
@@ -41,6 +41,8 @@ int Fibonacci(int n)
 }
 // Time Complexity O(n)
 // Space Complexity O(n)
+
+// O(logn) in mathematics folder
 
 int main(){
     fill_n(DP, 1000, -1);
