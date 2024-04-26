@@ -1,5 +1,4 @@
-// In 2d grid moving only up left down and right, find number of possible final position starting from origin
-// Distance from origin should always increase
+// https://www.hackerearth.com/problem/algorithm/city-tour/ 
 
 // After N steps, as distance will always increase, it will always end up moving 1 units
 // For n steps, it will move n units (N,0), (N-1,1), (N-2, 2).....(1, N-1) [(0, N) will be counted for 4th quadrant]
