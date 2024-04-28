@@ -23,7 +23,12 @@ pair<int, int> firstAndLastPosition(vector<int> &arr, int n, int k)
         int mid = left + (right - left) / 2;
         if (arr[mid] == k)
         {
-            first = mid;
+            if (mid == 0 || arr[mid - 1] != k)
+            {
+                first = mid;
+                break;
+            }
+
             right = mid - 1; // going left to get smallest index
         }
         else if (arr[mid] > k)
@@ -31,15 +36,21 @@ pair<int, int> firstAndLastPosition(vector<int> &arr, int n, int k)
         else
             left = mid + 1;
     }
+
     if (first == -1)
         return {-1, -1};
+
     left = 0, right = n - 1;
     while (left <= right)
     {
         int mid = left + (right - left) / 2;
         if (arr[mid] == k)
         {
-            last = mid;
+            if (mid == n-1 || arr[mid + 1] != k)
+            {
+                last = mid;
+                break;
+            }
             left = mid + 1; // going right to get largest index
         }
         else if (arr[mid] > k)
