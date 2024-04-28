@@ -1,6 +1,3 @@
-// same method can be applied for finding nth element of recurrent relation
-
-// fibo: fibo(n) = fibo(n-1) + fibo(n-2)
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -12,7 +9,7 @@ vector<vector<int>> multiply(vector<vector<int>> &a, vector<vector<int>> &b){
     if (c1!=r2) return {{}};
     vector<vector<int>> product;
     for(int i=0; i<=r1-1;i++){
-        product.push_back({});  
+        product.push_back({});   // delcaring size at first will cause matrix to have o(n) complexity more
         for(int j=0; j<=c2-1;j++){
                 product[i].push_back(0);
             for(int k=0; k<=r2-1; k++){
@@ -38,6 +35,11 @@ vector<vector<int>> identity(int n){
     }
     return identity_matrix;
 }
+
+// Brute Force: Multiply it n times
+// Time Complexity: O(n^3 m )
+
+// Optimized
 vector<vector<int>> power(vector<vector<int>> &a, int n){
     vector<vector<int>> ans= identity(a.size());
     while(n){
@@ -49,19 +51,9 @@ vector<vector<int>> power(vector<vector<int>> &a, int n){
     }
     return ans;
 }
-int fibonacci(int n)
-{
-   vector<vector<int>>a = {{0, 1}}; // first two elements of series
-   vector<vector<int>>b = {{0, 1}, {1, 1}}; // transition matrix for fibo
-    b = power(b, n-1);
-   return multiply(a, b)[0][0];
-}
-
-// TC: O(logn)
+// Time Complexity: O(n^3 log num)
 
 int main(){
-
-    cout<<fibonacci(8);
     
     return 0;
 }
