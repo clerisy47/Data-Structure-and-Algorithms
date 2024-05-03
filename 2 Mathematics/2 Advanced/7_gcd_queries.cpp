@@ -16,7 +16,7 @@ int gcd(int x, int y)
 
 int main(){
     int t, q, n, l, r, pre[100000], suff[100000], arr[100000];
-    cin<<t;
+    cin>>t;
     while(t--){
         cin>>n>>q;
         for(int i=0; i<=n-1; i++){
@@ -24,10 +24,10 @@ int main(){
         }
         pre[0] = suff[n+1] = 0; // we're taking indexes from 1 to n so assuming 0th and n+1 th index's gcd is 0 (while taking from left and right resp)
         for(int i=1; i<=n-1; i++){
-            pre[i]=mod(pre[i],pre[i-1]);
+            pre[i]=gcd(pre[i],pre[i-1]);
         }
         for(int i=n; i>=1; i--){
-            suff[i]=mod(suff[i],suff[i+1]);
+            suff[i]=gcd(suff[i],suff[i+1]);
         }
         while(q--){
             cin>>l>>r;
