@@ -18,7 +18,7 @@ vector<vector<int>> powerSet(vector<int> &arr){
 }
 
 // TC: O(n*2^n)
-// SC: O(n*2^n) (equivalent)
+// SC: O(1)
 
 int main(){
     

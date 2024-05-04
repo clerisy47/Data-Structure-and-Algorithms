@@ -1,4 +1,4 @@
-// similar but little bit more optimized way (no recursive stack space) in bit manipulation folder
+// similarly with worse tc but better sc in bit manipulation folder
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -27,6 +27,9 @@ vector<string> generateSubsequences(string str_q)
     generate(0, str_a, str_q, arr);
     return arr;
 }
+
+// TC: O(2^n)
+// SC: O(n) (recursive stack space)
 
 int main()
 {
