@@ -13,7 +13,7 @@ vector<int> bellmanFord(int n, vector<vector<int>> &edges, int vertex)
     distance[vertex] = 0;
     for (int i = 0; i <= n - 2; i++) // need to perform relaxation only n-1 times for shortest path to be found
     {
-        // relaxation
+        // relaxation of edge
         for (auto &it : edges)
         {
             int v1 = it[0];
