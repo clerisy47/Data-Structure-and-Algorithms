@@ -11,6 +11,9 @@ vector<int> bfs(int vertex, vector<vector<int>> &graph)
     while (!q.empty())
     {
         int parent = q.front();
+        output.push_back(parent);
+        q.pop();
+
         for (int child : graph[parent])
         {
             if (!visited[child])
@@ -19,8 +22,6 @@ vector<int> bfs(int vertex, vector<vector<int>> &graph)
                 visited[child] = true;
             }
         }
-        output.push_back(q.front());
-        q.pop();
     }
     return output;
 }
