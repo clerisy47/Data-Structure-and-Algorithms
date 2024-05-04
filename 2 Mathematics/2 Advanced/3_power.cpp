@@ -21,7 +21,7 @@ double power(double x, int n)
 // Optimal
 // Binary eEponentiation
 
-// recursion
+// Recursion
 double power(double x, int n)
 {
     if (n == 0)
@@ -33,7 +33,7 @@ double power(double x, int n)
     return x * power(x, n - 1);
 }
 
-// iteration
+// Iteration
 double power(double x, int n)
 {
     double ans = 1.0;
