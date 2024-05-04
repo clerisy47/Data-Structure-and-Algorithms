@@ -3,7 +3,7 @@ using namespace std;
 
 void dfs(int parent, vector<vector<int>> &graph, vector<bool> &visited, vector<int> &output)
 {
-    output.push_back(parent);
+    // output.push_back(parent); // preorder transversal
     visited[parent] = true;
     for (auto child : graph[parent])
     {
@@ -13,6 +13,8 @@ void dfs(int parent, vector<vector<int>> &graph, vector<bool> &visited, vector<i
             dfs(child, graph, visited, output);
         }
     }
+    output.push_back(parent); // post order transversal ie push parent after pushing children
+
 }
 
 // TC: O(V+ 2E) for single directional O(N+E)
@@ -20,6 +22,6 @@ void dfs(int parent, vector<vector<int>> &graph, vector<bool> &visited, vector<i
 
 int main()
 {
-    // this will only do dfs in connected components, to do in a forest, we should use for loop like following problem
+    // this will only do dfs in connected components, to do in a forest, we should use for loop like following problems
     return 0;
 }
