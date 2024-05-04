@@ -4,7 +4,7 @@
 using namespace std;
 
 int setLastUnsetBit(int num){
-    if((num&(num+1))==0) return num; // checks if it is power of 2 -1 ie all ones
+    if((num&(num+1))==0) return num; // checks if it is  all ones ie no unset bit
     return num | (num+1);
 }
 
