@@ -1,66 +1,94 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define ll long long int
+#define ll long long
 
-ll mod_sum(ll x, ll y, ll m)
+int mod_add(int x, int y, int m)
 {
-    return (x % m + y % m) % m;
+    return (x % m + 0LL + y % m) % m;
 }
 
-ll mod_sub(ll x, ll y, ll m)
+int mod_sub(int x, int y, int m)
 {
     return (x % m - y % m + m) % m;
 }
 
-ll mod_multiply(ll x, ll y, ll m)
+int mod_multiply(int x, int y, int m)
 {
-    return (x % m * y % m) % m;
+    return (x % m * 1LL * y % m) % m;
 }
 
-ll mod_power(ll x, ll y, ll m)
+// x <= 1e18 y <=1e9 m == 1e9+7
+int mod_power(int x, int y, int m)
+{
+    int ans = 1;
+    while (y)
+    {
+        if (y & 1)
+            ans = mod_multiply(ans, x, m);
+        x = mod_multiply(x, x, m);
+        y >>= 1;
+    }
+    return ans;
+}
+// TC: log(n)
+
+// x <= 1e18 y <=1e18 z == 1e9 + 7
+int mod_multiply_binary(ll x, ll y, ll m)
+{
+    ll ans = 0;
+    while (y)
+    {
+        if (y & 1)
+            ans = mod_add(ans, x, m);
+        x = mod_add(x, x, m);
+        y >>= 1;
+    }
+}
+int mod_power(ll x, ll y, ll m)
 {
     ll ans = 1;
     while (y)
     {
         if (y & 1)
         {
-            ans = mod_multiply(ans, x, m);
+            ans = mod_multiply_binary(ans, x, m);
         }
-        x = mod_multiply(x, x, m);
+        x = mod_multiply_binary(x, x, m);
         y >>= 1;
     }
     return ans;
 }
+// TC: (log(n))^2
 
-ll mod_inverse(ll x, ll m)
+int mod_inverse(int x, int m)
 {
     // modulus multiplicative inverse
     return mod_power(x, m - 2, m);
 }
 
-ll mod_divide(ll x, ll y, ll m)
+int mod_divide(int x, int y, int m)
 {
     return (x % m * mod_inverse(y, m)) % m;
 }
 
-ll mod_factorial(ll x, ll m)
+int mod_factorial(int x, int m)
 {
-    ll ans = 1;
-    for (ll i = 2; i <= x; i++)
+    int ans = 1;
+    for (int i = 2; i <= x; i++)
     {
-        ans = (ans * i) % m;
+        ans = mod_multiply(ans, i, m);
     }
     return ans;
 }
 
 int main()
 {
-    ll m = 1000000007;
+    int m = 1000000007;
 
-    cout << "Testing mod_sum:" << endl;
-    cout << "mod_sum(10, 20, " << m << ") = " << mod_sum(10, 20, m) << endl;
-    cout << "mod_sum(12, 5, " << 5 << ") = " << mod_sum(12, 5, 5) << endl;
+    cout << "Testing mod_add:" << endl;
+    cout << "mod_add(10, 20, " << m << ") = " << mod_add(1e9, 1e9, m) << endl;
+    cout << "mod_add(12, 5, " << 5 << ") = " << mod_add(12, 5, 5) << endl;
 
     // Test mod_sub
     cout << "\nTesting mod_sub:" << endl;
