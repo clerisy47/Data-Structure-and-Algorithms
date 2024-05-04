@@ -26,7 +26,7 @@ int NthRoot(int n, int num)
     int ans = num;
     while (left <= right)
     {
-        int mid = left + (right - left) / 2;
+        int mid = left + ((right - left)>>1); // optimized using bit operator
         if (pow(mid, n, num) <= num)
         {
             ans = mid;
@@ -42,6 +42,7 @@ int NthRoot(int n, int num)
 
 int main()
 {
+    cout<<NthRoot(2, 8);
 
     return 0;
 }

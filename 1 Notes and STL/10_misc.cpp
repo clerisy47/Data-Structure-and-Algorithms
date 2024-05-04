@@ -21,7 +21,11 @@ int main(){
     printVec(v);
     cout<< all_of(v.begin(), v.end(),[](int x){ return x>5;})<<" "; // returns 0(false)
     cout<< any_of(v.begin(), v.end(),[](int x){ return x>5;})<<" "; // returns 1(true)
-    cout<< none_of(v.begin(), v.end(),[](int x){ return x>5;})<<" "; // returns 0(false)
+    cout<< none_of(v.begin(), v.end(),[](int x){ return x>5;})<<endl; // returns 0(false)
+
+
+    cout<< __builtin_popcount(5)<<endl; // number of set bits in the number
+    cout<< __builtin_popcountll(1ll)<<endl;
 
     cout<<__gcd(5, 6);
 }

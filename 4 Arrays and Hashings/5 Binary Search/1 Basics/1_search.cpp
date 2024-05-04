@@ -22,7 +22,8 @@ int binarySearch(int k, vector<int> &arr)
     int left=0, right=n-1;
     while(left<=right){
         // int mid = (left+right)/2;
-        int mid = left + (right-left)/2; //(avoids overflow_error)
+        // int mid = left + (right-left)/2; //(avoids overflow_error)
+        int mid = left + ((right - left)>>1); // optimized using bit operator
         if(arr[mid]==k) return mid;
         else if(arr[mid]>k) right = mid-1;
         else left=mid+1;
