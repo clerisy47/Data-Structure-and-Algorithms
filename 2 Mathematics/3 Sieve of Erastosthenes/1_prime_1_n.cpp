@@ -3,31 +3,31 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-vector<bool> sieve_of_erastosthenes(int n)
+int N = 100;
+vector<bool> isPrime(N, true);
+
+void fillSieve()
 {
-    vector<bool> primes(n + 1, 1);
-    primes[0] = 0;
-    primes[1] = 0;
-    for (int i = 2; i * i <= n; i++)
+    isPrime[0] = isPrime[1] = false;
+    for (int i = 2; i * i <= N - 1; i++)
     {
-        if (primes[i] == 1)
+        if (isPrime[i] == true)
         {
-            for (int j = i * i; j <= n; j += i)
+            for (int j = i * i; j <= N-1; j += i)
             {
-                primes[j] = 0;
+                isPrime[j] = false;
             }
         }
     }
-    return primes;
     // Time Complexity: O(n * log log n)
     // Space Complexity: O(n)
 }
 
-void print_prime(int n, vector<bool> &primes)
+void print_prime(int n)
 {
-    for (int j = 0; j <= n; j++)
+    for (int j = 2; j <= n; j++)
     {
-        if (primes[j])
+        if (isPrime[j])
         {
             cout << j << " ";
         }
@@ -38,14 +38,9 @@ void print_prime(int n, vector<bool> &primes)
 
 int main()
 {
-    int q, n;
-    cin >> q;
-    vector primes = sieve_of_erastosthenes(100000);
-    for (int i = 0; i <= q - 1; i++)
-    {
-        cin >> n;
-        print_prime(n, primes);
-        cout << endl;
-    }
+    fillSieve();
+    int n;
+    cin >> n;
+    print_prime(n);
     return 0;
 }
