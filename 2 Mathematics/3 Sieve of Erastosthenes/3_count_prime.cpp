@@ -4,47 +4,42 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-vector<int> sieve_of_erastosthenes(int n)
+int N = 1000;
+vector<int> count_primes(N, 1);
+void fillSieve()
 {
-    vector<int> primes(n + 1, 1);
-    primes[0] = 0;
-    primes[1] = 0;
-    for (int i = 2; i * i <= n; i++)
+    count_primes[0] = count_primes[1] = 0;
+    for (int i = 2; i * i <= N - 1; i++)
     {
-        if (primes[i] == 1)
+        if (count_primes[i])
         {
-            for (int j = i * i; j <= n; j += i)
+            for (int j = i * i; j <= N; j += i)
             {
-                primes[j] = 0;
+                count_primes[j] = 0;
             }
         }
     }
-    for (int i = 2; i <= n; i++)
+
+    // modified count_primes
+    for (int i = 2; i <= N - 1; i++)
     {
-        primes[i] += primes[i - 1];
+        count_primes[i] += count_primes[i - 1];
     }
-    return primes;
-    // Time Complexity: O(n * log log n+n)
-    // Space Complexity: O(n)
 }
 
-int count_prime(int l, int r, vector<int> &primes)
+int countPrime(int l, int r)
 {
-    return primes[r] - primes[l - 1];
+    return count_primes[r] - count_primes[l - 1];
     // Time Complexity: O(r-l) + O(n * log log n)
     // Space Complexity: O(r-l)
 }
 
 int main()
 {
-    int q, l, r;
-    cin >> q;
-    vector<int> primes = sieve_of_erastosthenes(100000);
-    for (int i = 0; i <= q - 1; i++)
-    {
-        cin >> l;
-        cin >> r;
-        cout << count_prime(l, r, primes) << endl;
-    }
+    fillSieve();
+    int l, r;
+    cin >> l;
+    cin >> r;
+    cout << countPrime(l, r) << endl;
     return 0;
 }
