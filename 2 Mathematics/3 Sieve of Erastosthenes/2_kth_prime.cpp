@@ -1,30 +1,41 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
-vector<int> sieve(int n){
-    vector<int> arr_sieve(n+1, 1);
-    vector<int> arr_kth_prime;
-    arr_sieve[0]=arr_sieve[1]=0;
-    for(int i=2; i*i<=n; i++){
-        if(arr_sieve[i]){
-            for(int j=i*i; j<=n; j+=i){
-                arr_sieve[j]=0;
+int N = 1000;
+vector<bool> sieve(N, true);
+
+void fillSieve()
+{
+    sieve[0] = sieve[1] = false;
+    for (int i = 2; i * i <= N - 1; i++)
+    {
+        if (sieve[i])
+        {
+            for (int j = i * i; j <= N; j += i)
+            {
+                sieve[j] = false;
             }
         }
     }
-    for(int i=2; i<=n; i++){
-        if(arr_sieve[i]){
-            arr_kth_prime.push_back(i);
+}
+
+int kth_prime(int k)
+{
+    int ctr = 0;
+    for (int i = 2; i <= N - 1; i++)
+    {
+        if (sieve[i])
+        {
+            ctr++;
+            if (ctr == k)
+                return i;
         }
     }
-    return arr_kth_prime;
 }
 
-int kth_prime(int k){
-    return sieve(1000)[k-1];
-}
-
-int main(){
+int main()
+{
+    fillSieve();
     int k;
     cin >> k;
     int kthPrime = kth_prime(k);
