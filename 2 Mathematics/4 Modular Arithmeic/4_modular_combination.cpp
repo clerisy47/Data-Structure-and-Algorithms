@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 #define ll long long int
 #define mod 1000000007
@@ -35,18 +35,32 @@ ll mod_divide(ll x, ll y, ll m)
     return (x % m * mod_inverse(y, m)) % m;
 }
 
-ll nCr(ll n, ll r, ll m){
-    if(n<r) return 0;
-    return mod_divide(mod_divide(facto[n], facto[r], m), facto[n-r], m);
+void preCompute()
+{
+    facto[0] = facto[1] = 1;
+    for (ll i = 2; i <= 100000 - 1; i++)
+    {
+        facto[i] = mod_multiply(i, facto[i - 1], mod);
+    }
 }
 
-int main(){
-    facto[0]=facto[1]=1;
-    for(ll i=2; i<=100000-1; i++){
-        facto[i]= mod_multiply(i, facto[i-1], mod);
-    }
+ll nCr(ll n, ll r, ll m)
+{
+    if (n < r)
+        return 0;
+    return mod_divide(mod_divide(facto[n], facto[r], m), facto[n - r], m);
+}
 
-    cout<<nCr(5,6, mod);
-    
+int main()
+{
+    preCompute();
+    int t;
+    cin >> t;
+    while (t--)
+    {
+        int n,r;
+        cin>>n>>r;
+        cout << nCr(n, r, mod);
+    }
     return 0;
 }
