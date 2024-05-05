@@ -41,6 +41,7 @@ int superPow(int a, vector<int> &b)
         b_int = mod_multiply(b_int, 10, 1140);
         b_int = mod_add(b_int, b[i], 1140);
     }
+    if (b_int == 0) b_int += 1140;  // edge case when b_int is 0
     return mod_power(a, b_int, 1337);
 }
 
