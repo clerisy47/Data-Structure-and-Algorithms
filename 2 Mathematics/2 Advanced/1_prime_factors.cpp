@@ -14,8 +14,8 @@ vector<int> primeFactos(int n)
 {
     vector<int> ans;
     for(int i=2;i<=n;i++){
-        if(n%i==0){
-            if(isPrime(i)) ans.push_back(i);
+        if(isPrime(i)&&n%i==0){
+            ans.push_back(i);
         }
     }
     return ans;
