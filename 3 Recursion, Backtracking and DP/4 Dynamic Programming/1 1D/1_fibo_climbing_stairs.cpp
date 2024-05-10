@@ -41,18 +41,17 @@ int fibonacci(int n)
 {
     if (n <= 1)
         return n;
-    int dp[3];
+    int dp[2];
     dp[0] = 0;
     dp[1] = 1;
     for (int i = 2; i <= n; i++)
     {
-        int first = dp[1];    // replace i with 3-1
+        int first = dp[1]; 
         int second = dp[0];
-        dp[2] = first + second;
         dp[0] = dp[1];
-        dp[1] = dp[2];
+        dp[1] = first + second;
     }
-    return dp[1]; // always return the dp[1] not dp[2] in case the for loop doesn't run
+    return dp[1];
 }
 // Time Complexity O(n)
 // Space Complexity O(1)
