@@ -50,7 +50,7 @@ int findAllSubarraysWithGivenSum(vector<int> &a, int k)
     for (int l = 0, r = 0; r <= n - 1; r++)
     {
         sum += a[r];
-        if (sum > k)
+        if (sum > k)  
         {
             sum -= a[l];
             l++;
