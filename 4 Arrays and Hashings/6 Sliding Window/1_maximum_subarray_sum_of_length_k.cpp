@@ -4,15 +4,15 @@ using namespace std;
 int maximumSubarraySum(vector<int> &arr, int k)
 {
     int n = arr.size();
-    int currSum = 0, maxSum = 0;
+    int currSum = 0;
     for (int i = 0; i <= k - 1; i++)
     {
         currSum += arr[i];
     }
-    maxSum = currSum;
-    for (int l = 1, r = k; r <= n - 1; l++, r++)
+    int maxSum = currSum;
+    for (int l = 0, r = k; r <= n - 1; l++, r++) // here pointer l removes wheras r adds new eliminates to window hence are assigned with indexes accordingly
     {
-        currSum += arr[r] - arr[l - 1];
+        currSum += arr[r] - arr[l];
         if (currSum > maxSum)
             maxSum = currSum;
     }
