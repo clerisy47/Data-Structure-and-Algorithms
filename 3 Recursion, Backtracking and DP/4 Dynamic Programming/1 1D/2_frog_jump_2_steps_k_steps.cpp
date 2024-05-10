@@ -49,18 +49,17 @@ int frogJump(int n, vector<int> &heights)
 {
     if (n == 1)
         return 0;
-    vector<int> dp(3);
+    vector<int> dp(2);
     dp[0] = 0;
     dp[1] = abs(heights[1] - heights[0]);
     for (int i = 2; i <= n - 1; i++)
     {
-        int l = dp[1] + abs(heights[i] - heights[i - 1]); // replace i with 3-1
+        int l = dp[1] + abs(heights[i] - heights[i - 1]);
         int r = dp[0] + abs(heights[i] - heights[i - 2]);
-        dp[2] = min(l, r);
         dp[0] = dp[1];
-        dp[1] = dp[2];
+        dp[1] = min(l, r);
     }
-    return dp[1];  // always return the dp[1] not dp[2] in case the for loop doesn't run
+    return dp[1];
 }
 
 // If frog can jump for k steps just replace l and r statements with for loop and find the minimum
