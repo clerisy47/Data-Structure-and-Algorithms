@@ -46,16 +46,15 @@ int rob(vector<int> &arr)
 {
     int n = arr.size();
     if(n==1) return arr[0]; 
-    vector<int> dp(3);
+    vector<int> dp(2);
     dp[0] = arr[0];
     dp[1] = max(arr[0], arr[1]);
     for (int i = 2; i <= n - 1; i++)
     {
         int l = arr[i] + dp[0];
         int r = dp[1];
-        dp[2] = max(l, r);
         dp[0]=dp[1];
-        dp[1]=dp[2];
+        dp[1]=max(l, r);
     }
     return dp[1];
 }
