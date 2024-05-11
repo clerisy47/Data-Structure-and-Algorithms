@@ -17,7 +17,7 @@ int f(int i, vector<int> &heights, vector<int> &dp)
         return dp[i];
     int l = f(i - 1, heights, dp) + abs(heights[i] - heights[i - 1]);
 
-    int r = f(i - 2, heights, dp) + abs(heights[i] - heights[i - 2]);
+    int r =  f(i - 2, heights, dp) + abs(heights[i] - heights[i - 2]);
     return dp[i] = min(l, r);
 }
 
