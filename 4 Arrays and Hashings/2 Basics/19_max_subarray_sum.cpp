@@ -25,8 +25,7 @@ int maxSubarraySum(vector<int> arr, int n)
     for (int i = 0; i <= n - 1; i++)
     {
         curr_sum += arr[i];
-        if (curr_sum > max_sum)
-            max_sum = curr_sum;
+        max_sum = max(curr_sum, max_sum);
         if (curr_sum < 0)
             curr_sum = 0;
     }
