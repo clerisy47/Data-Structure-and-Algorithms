@@ -1,7 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-// Greedy Algorithm
 bool isBalanced(string s){
     stack<char> st;
 
