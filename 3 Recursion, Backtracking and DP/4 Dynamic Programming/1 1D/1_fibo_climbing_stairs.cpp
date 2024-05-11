@@ -7,7 +7,7 @@ int fibonacci(int n, int dp[]) // size of dp = x+1
 {
     if (n <= 1)
         return n;
-    if (dp[n])
+    if (dp[n]!=-1)
     {
         return dp[n];
     }
