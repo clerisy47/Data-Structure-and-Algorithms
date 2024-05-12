@@ -12,40 +12,20 @@ struct Node
     int ctrPrefix = 0; // no need this variable if question only asks related to startsWith and search only
     int ctrEndWith = 0; // // this variable can be bool if question only asks related to startsWith and search only
 
-    bool containsKey(char ch)
+    bool containsChar(char ch)
     {
         return (child[ch - 'a'] != NULL);
     }
 
-    Node *get(char ch)
+    Node *getChild(char ch)
     {
         return child[ch - 'a'];
     }
 
-    void put(char ch, Node *node)
+    void addChild(char ch, Node *node)
     {
 
         child[ch - 'a'] = node;
-    }
-
-    void increaseEnd()
-    {
-        ctrEndWith++;
-    }
-
-    void increasePrefix()
-    {
-        ctrPrefix++;
-    }
-
-    void deleteEnd()
-    {
-        ctrEndWith--;
-    }
-
-    void reducePrefix()
-    {
-        ctrPrefix--;
     }
 };
 
@@ -67,15 +47,35 @@ public:
         for (int i = 0; i <= word.size() - 1; i++)
         {
 
-            if (!node->containsKey(word[i]))
+            if (!node->containsChar(word[i]))
             {
-                node->put(word[i], new Node());
+                node->addChild(word[i], new Node());
             }
 
-            node = node->get(word[i]);
-            node->increasePrefix();
+            node = node->getChild(word[i]);
+            node->ctrPrefix++;
         }
-        node->increaseEnd();
+        node->ctrEndWith++;
+    }
+
+    void erase(string word)
+    {
+        Node *node = root;
+
+        for (int i = 0; i <= word.size() - 1; i++)
+        {
+
+            if (node->containsChar(word[i]))
+            {
+                node = node->getChild(word[i]);
+                node->ctrPrefix--;
+            }
+            else
+            {
+                return;
+            }
+        }
+        node->ctrEndWith--;
     }
 
     // bool startsWith(string prefix)
@@ -83,12 +83,12 @@ public:
     //     Node *node = root;
     //     for (int i = 0; i <= prefix.size() - 1; i++)
     //     {
-    //         if (!node->containsKey(prefix[i]))
+    //         if (!node->containsChar(prefix[i]))
     //         {
 
     //             return false;
     //         }
-    //         node = node->get(prefix[i]);
+    //         node = node->getChild(prefix[i]);
     //     }
     //     return true;
     // }
@@ -98,9 +98,9 @@ public:
         Node *node = root;
         for (int i = 0; i <= prefix.size() - 1; i++)
         {
-            if (node->containsKey(prefix[i]))
+            if (node->containsChar(prefix[i]))
             {
-                node = node->get(prefix[i]);
+                node = node->getChild(prefix[i]);
             }
             else
             {
@@ -116,12 +116,12 @@ public:
     //     Node *node = root;
     //     for (int i = 0; i <= word.size() - 1; i++)
     //     {
-    //         if (!node->containsKey(word[i]))
+    //         if (!node->containsChar(word[i]))
     //         {
 
     //             return false;
     //         }
-    //         node = node->get(word[i]);
+    //         node = node->getChild(word[i]);
     //     }
     //     return node->ctrEndWith != 0;
     // }
@@ -131,9 +131,9 @@ public:
         Node *node = root;
         for (int i = 0; i <= word.size() - 1; i++)
         {
-            if (node->containsKey(word[i]))
+            if (node->containsChar(word[i]))
             {
-                node = node->get(word[i]);
+                node = node->getChild(word[i]);
             }
             else
             {
@@ -141,27 +141,6 @@ public:
             }
         }
         return node->ctrEndWith;
-    }
-
-    void erase(string word)
-    {
-        Node *node = root;
-
-        for (int i = 0; i <= word.size() - 1; i++)
-        {
-
-            if (node->containsKey(word[i]))
-            {
-                node = node->get(word[i]);
-                node->reducePrefix();
-            }
-            else
-            {
-                return;
-            }
-        }
-
-        node->deleteEnd();
     }
 };
 
