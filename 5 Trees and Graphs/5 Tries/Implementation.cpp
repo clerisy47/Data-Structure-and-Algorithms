@@ -1,3 +1,4 @@
+// https://leetcode.com/problems/implement-trie-prefix-tree/description/
 // https://www.naukri.com/code360/problems/implement-trie_1387095?utm_source=youtube&utm_medium=affiliate&utm_campaign=striver_tries_videos
 
 #include <bits/stdc++.h>
@@ -6,26 +7,26 @@ using namespace std;
 struct Node
 {
 
-    Node *links[26];
+    Node *child[26];
 
-    int ctrEndWith = 0;
-
-    int ctrPrefix = 0;
+    int ctrPrefix = 0; // no need this variable if question only asks related to startsWith and search only
+    // bool endsWith=false; // use this if question only asks related to startsWith and search only
+    int ctrEndWith = 0; 
 
     bool containsKey(char ch)
     {
-        return (links[ch - 'a'] != NULL);
+        return (child[ch - 'a'] != NULL);
     }
 
     Node *get(char ch)
     {
-        return links[ch - 'a'];
+        return child[ch - 'a'];
     }
 
     void put(char ch, Node *node)
     {
 
-        links[ch - 'a'] = node;
+        child[ch - 'a'] = node;
     }
 
     void increaseEnd()
@@ -78,6 +79,54 @@ public:
         node->increaseEnd();
     }
 
+    // bool startsWith(string prefix)
+    // {
+    //     Node *node = root;
+    //     for (int i = 0; i <= prefix.size() - 1; i++)
+    //     {
+    //         if (!node->containsKey(prefix[i]))
+    //         {
+
+    //             return false;
+    //         }
+    //         node = node->get(prefix[i]);
+    //     }
+    //     return true;
+    // }
+
+    int countWordsStartingWith(string prefix)
+    {
+        Node *node = root;
+        for (int i = 0; i <= prefix.size() - 1; i++)
+        {
+            if (node->containsKey(prefix[i]))
+            {
+                node = node->get(prefix[i]);
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
+        return node->ctrPrefix;
+    }
+
+    // bool search(string word)
+    // {
+    //     Node *node = root;
+    //     for (int i = 0; i <= word.size() - 1; i++)
+    //     {
+    //         if (!node->containsKey(word[i]))
+    //         {
+
+    //             return false;
+    //         }
+    //         node = node->get(word[i]);
+    //     }
+    //     return node->ctrEndWith != 0;
+    // }
+
     int countWordsEqualTo(string word)
     {
         Node *node = root;
@@ -93,24 +142,6 @@ public:
             }
         }
         return node->ctrEndWith;
-    }
-
-    int countWordsStartingWith(string word)
-    {
-        Node *node = root;
-        for (int i = 0; i <= word.size() - 1; i++)
-        {
-            if (node->containsKey(word[i]))
-            {
-                node = node->get(word[i]);
-            }
-            else
-            {
-                return 0;
-            }
-        }
-
-        return node->ctrPrefix;
     }
 
     void erase(string word)
