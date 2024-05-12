@@ -4,25 +4,26 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// modify/remove the attributes and functions according to the question
 struct Node
 {
 
     Node *child[26];
 
-    int ctrPrefix = 0; // no need this variable if question only asks related to startsWith and search only
-    int ctrEndWith = 0; // // this variable can be bool if question only asks related to startsWith and search only
+    int ctrPrefix = 0;
+    int ctrEndWith = 0;
 
-    bool containsChar(char ch)
+    bool containsChar(char &ch)
     {
         return (child[ch - 'a'] != NULL);
     }
 
-    Node *getChild(char ch)
+    Node *getChild(char &ch)
     {
         return child[ch - 'a'];
     }
 
-    void addChild(char ch, Node *node)
+    void addChild(char &ch, Node *node)
     {
 
         child[ch - 'a'] = node;
@@ -40,7 +41,7 @@ public:
         root = new Node();
     }
 
-    void insert(string word)
+    void insert(string &word)
     {
         Node *node = root;
 
@@ -58,7 +59,7 @@ public:
         node->ctrEndWith++;
     }
 
-    void erase(string word)
+    void erase(string &word)
     {
         Node *node = root;
 
@@ -78,7 +79,7 @@ public:
         node->ctrEndWith--;
     }
 
-    // bool startsWith(string prefix)
+    // bool startsWith(string &prefix)
     // {
     //     Node *node = root;
     //     for (int i = 0; i <= prefix.size() - 1; i++)
@@ -93,7 +94,7 @@ public:
     //     return true;
     // }
 
-    int countWordsStartingWith(string prefix)
+    int countWordsStartingWith(string &prefix)
     {
         Node *node = root;
         for (int i = 0; i <= prefix.size() - 1; i++)
@@ -111,7 +112,7 @@ public:
         return node->ctrPrefix;
     }
 
-    // bool search(string word)
+    // bool search(string &word)
     // {
     //     Node *node = root;
     //     for (int i = 0; i <= word.size() - 1; i++)
@@ -144,23 +145,10 @@ public:
     }
 };
 
+// TC: O(N) (for every method)
+
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    Trie trie;
-    trie.insert("apple");
-    trie.insert("app");
-    cout << "Inserting strings 'apple', 'app' into Trie" << endl;
-    cout << "Count Words Equal to 'apple': ";
-    cout << trie.countWordsEqualTo("apple") << endl;
-    cout << "Count Words Starting With 'app': ";
-    cout << trie.countWordsStartingWith("app") << endl;
-    cout << "Erasing word 'app' from trie" << endl;
-    trie.erase("app");
-    cout << "Count Words Equal to 'apple': ";
-    cout << trie.countWordsEqualTo("apple") << endl;
-    cout << "Count Words Starting With 'app': ";
-    cout << trie.countWordsStartingWith("app") << endl;
-    return 0;
 }
