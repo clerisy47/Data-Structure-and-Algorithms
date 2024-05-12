@@ -10,8 +10,7 @@ struct Node
     Node *child[26];
 
     int ctrPrefix = 0; // no need this variable if question only asks related to startsWith and search only
-    // bool endsWith=false; // use this if question only asks related to startsWith and search only
-    int ctrEndWith = 0; 
+    int ctrEndWith = 0; // // this variable can be bool if question only asks related to startsWith and search only
 
     bool containsKey(char ch)
     {
