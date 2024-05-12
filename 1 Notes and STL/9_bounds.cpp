@@ -19,7 +19,7 @@ int main(){
 
     vector<int> v = {4, 6, 8, 25, 7};
 
-    auto loc = find(v.begin(), v.end(), 4); // returns index if present or returns end index
+    auto loc = find(v.begin(), v.end(), 4); // returns index if present or returns the length of the array
 
     auto bound = lower_bound(v.begin(), v.end(), 6);
     cout<< bound-v.begin()<<endl; // 1
