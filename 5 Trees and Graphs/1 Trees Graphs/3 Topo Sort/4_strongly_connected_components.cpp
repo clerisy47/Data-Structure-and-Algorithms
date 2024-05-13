@@ -8,19 +8,34 @@ using namespace std;
 // 2) Reverse all the edges (because of this graph will be like a forest with strongly connected components as tree)
 // 3) DFS
 
-void dfs_sort(int parent, vector<vector<int>> &graph, vector<bool> &visited, stack<int> &sorted)
+void dfs(int parent, vector<vector<int>> &graph, vector<bool> &visited, vector<int> &output)
 {
-    // sorted.push(parent); // preorder transversal
     visited[parent] = true;
     for (auto child : graph[parent])
     {
         if (!visited[child])
         {
 
-            dfs_sort(child, graph, visited, sorted);
+            dfs(child, graph, visited, output);
         }
     }
-    sorted.push(parent); // post order transversal ie push parent after pushing children
+    output.push_back(parent); // we need to do post order transversal ie push parent after pushing children as they will be sorted after reversing later
+}
+
+vector<int> topoSort(vector<vector<int>> &graph)
+{
+    int n = graph.size();
+    vector<bool> visited(n, false);
+    vector<int> output;
+    for (int vertex = 0; vertex <= n - 1; vertex++)
+    {
+        if (!visited[vertex])
+        {
+            dfs(vertex, graph, visited, output);
+        }
+    }
+    reverse(output.begin(), output.end()); // or can use stack to avoid this
+    return output;
 }
 
 void reverse_edge(vector<vector<int>> &graph, vector<bool> &visited)
@@ -53,20 +68,11 @@ void dfs(int parent, vector<vector<int>> &graph, vector<bool> &visited)
 int kosaraju(int n, vector<vector<int>> &graph)
 {
     vector<bool> visited(n);
-    stack<int> sorted;
-    for (int i = 0; i <= n - 1; i++)
-    {
-        if (!visited[i])
-        {
-            dfs_sort(i, graph, visited, sorted);
-        }
-    }
+    vector<int> sorted = topoSort(graph);
     reverse_edge(graph, visited);
     int ctr = 0;
-    while (!sorted.empty())
+    for (auto &parent : sorted)
     {
-        int parent = sorted.top();
-        sorted.pop();
         if (!visited[parent])
         {
             dfs(parent, graph, visited);
@@ -75,6 +81,9 @@ int kosaraju(int n, vector<vector<int>> &graph)
     }
     return ctr;
 }
+
+// TC:  O(V+E) + O(V+E) + O(V+E) (for each function)
+// SC: O(V)+O(V)+O(V+E)+ O(V)+O(V) (for stack, visited array and reversed graph)
 
 int main()
 {
