@@ -1,11 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void dfs(int parent, vector<vector<int>> &graph, vector<bool> &visited, vector<int> &output)
+void dfs(int node, vector<vector<int>> &graph, vector<bool> &visited, vector<int> &output)
 {
-    // output.push_back(parent); // preorder transversal
-    visited[parent] = true;
-    for (auto child : graph[parent])
+    // output.push_back(node); // preorder transversal
+    visited[node] = true;
+    for (auto child : graph[node])
     {
         if (!visited[child])
         {
@@ -13,7 +13,7 @@ void dfs(int parent, vector<vector<int>> &graph, vector<bool> &visited, vector<i
             dfs(child, graph, visited, output);
         }
     }
-    output.push_back(parent); // post order transversal ie push parent after pushing children
+    output.push_back(node); // post order transversal ie push node after pushing children
 
 }
 
