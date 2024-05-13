@@ -6,8 +6,8 @@ using namespace std;
 // Optimal solution
 vector<int> bitManipulation(int num, int k){
     int i = k-1; // Getting index. If question has 0 indexing then no need
-    bool get = num&(1<<i);
-    // bool get = 1&(num>>i); using right shift
+    // bool get = num&(1<<i)!=1;
+    bool get = 1&(num>>i);
     int set = num|(1<<i);
     int clear = num&~(1<<i);
     int toggle = num^(1<<i);
