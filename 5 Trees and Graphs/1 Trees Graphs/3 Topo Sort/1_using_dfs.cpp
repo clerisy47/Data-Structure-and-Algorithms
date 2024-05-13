@@ -28,7 +28,7 @@ vector<int> topoSort(vector<vector<int>> &graph)
             dfs(vertex, graph, visited, output);
         }
     }
-    reverse(output.begin(), output.end());
+    reverse(output.begin(), output.end()); // or can use stack to avoid this
     return output;
 }
 
