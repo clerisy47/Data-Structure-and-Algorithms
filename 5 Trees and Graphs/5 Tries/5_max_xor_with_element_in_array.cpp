@@ -1,5 +1,4 @@
-// https://leetcode.com/problems/maximum-xor-with-an-element-from-array/description/
-
+// https://leetcode.com/problems/maximum-xor-of-two-numbers-in-an-array/description/
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -41,7 +40,7 @@ public:
         Node *node = root;
         for (int i = 31; i >= 0; i--)
         {
-            int bit = num & (1 << i); // get bit
+            int bit = (num >> i) & 1; // get bit
             if (!node->containsBit(bit))
             {
 
@@ -56,7 +55,7 @@ public:
         int maxNum = 0;
         for (int i = 31; i >= 0; i--)
         {
-            int bit = num & (1 << i); // get bit
+            int bit = (num >> i) & 1; // get bit
             if (node->containsBit(1 - bit))
             {
                 maxNum |= (1 << i); // set bit
