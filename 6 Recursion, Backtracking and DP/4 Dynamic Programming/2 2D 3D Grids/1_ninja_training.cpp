@@ -1,3 +1,5 @@
+// https://www.naukri.com/code360/problems/ninja%E2%80%99s-training_3621003
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -65,30 +67,33 @@ int ninjaTraining(int n, vector<vector<int>> &points)
 
 int ninjaTraining(int n, vector<vector<int>> &points)
 {
-    vector<int> dp(4); // 1x4 nested vector == 4 vector
-    dp[0] = max(points[0][1], points[0][2]);
-    dp[1] = max(points[0][0], points[0][2]);
-    dp[2] = max(points[0][0], points[0][1]);
-    dp[3] = max(points[0][0], max(points[0][1], points[0][2]));
+    vector<vector<int>> dp(2, vector<int>(4));
+    dp[0][0] = max(points[0][1], points[0][2]);
+    dp[0][1] = max(points[0][0], points[0][2]);
+    dp[0][2] = max(points[0][0], points[0][1]);
+    dp[0][3] = max(points[0][0], max(points[0][1], points[0][2]));
     for (int i = 1; i <= n - 1; i++)
     {
-        vector<int> maxPoints(4, 0);
+        fill(dp[1].begin(), dp[1].end(), 0);
+
         for (int prev = 0; prev <= 3; prev++)
         {
-            maxPoints[prev] = 0;
+            int maxPoints = 0;
             for (int j = 0; j <= 2; j++)
             {
                 if (j != prev)
                 {
-                    int currPoints = points[i][j] + dp[j]; // since here dp[j] is used it becomes modified at each loop so that it should be recorded in separate array
-                    maxPoints[prev] = max(maxPoints[prev], currPoints);
+                    int currPoints = points[i][j] + dp[0][j];
+                    maxPoints = max(maxPoints, currPoints);
                 }
             }
+            dp[1][prev] = maxPoints;
         }
-        dp = maxPoints;
+        dp[0]=dp[1];
     }
-    return dp[3];
+    return dp[n - 1][3];
 }
+
 
 int main()
 {
