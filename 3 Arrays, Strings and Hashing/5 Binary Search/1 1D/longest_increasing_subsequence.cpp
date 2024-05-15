@@ -3,7 +3,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Less optimal approach in binary search folder
+// Less optimal approach in dp folder
 int lengthOfLIS(vector<int> &arr)
 {
     vector<int> sub; // this is not the actual subsequence
