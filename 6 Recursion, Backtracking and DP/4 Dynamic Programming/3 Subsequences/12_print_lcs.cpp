@@ -1,7 +1,9 @@
+// https://www.naukri.com/code360/problems/print-longest-common-subsequence_8416383
+
 #include <bits/stdc++.h>
 using namespace std;
 
-string longestCommonSubsequence(string str1, string str2)
+string findLCS(string str1, string str2)
 {
     // finding length of lcs using previous question
     int n = str1.size(), m = str2.size();
@@ -20,31 +22,25 @@ string longestCommonSubsequence(string str1, string str2)
     }
 
     // backtracking
-    int len = dp[n][m];
-    int i = n;
-    int j = m;
-    int index = len - 1;
-    string ans;
-    for (int k = 0; k <= len - 1; k++)
-    {
-        ans.push_back(' '); // dummy string
-    }
-    while (i > 0 && j > 0)
+    string ans = "";
+    for (int i = n, j = m; i >= 1, i >= 1; i)
     {
         if (str1[i - 1] == str2[j - 1])
         {
-            ans[index] = str1[i - 1];
-            index--;
+            ans.push_back(str1[i - 1]);
             i--;
             j--;
         }
-        else if (str1[i - 1] > str2[j - 1])  // basically reversing the dp code
+        else if (dp[i - 1][j] > dp[i][j - 1])
         {
             i--;
         }
         else
+        {
             j--;
+        }
     }
+    reverse(ans.begin(), ans.end());
     return ans;
 }
 
