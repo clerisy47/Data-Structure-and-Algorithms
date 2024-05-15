@@ -17,8 +17,8 @@ pair<int, int> firstAndLastPosition(vector<int> &arr, int n, int k)
 // using binary search
 pair<int, int> firstAndLastPosition(vector<int> &arr, int n, int k)
 {
-    int left = 0, right = n - 1, first = -1, last = -1;
-    while (left <= right)
+    int left, right, first = -1, last = -1;
+    for (left = 0, right = n - 1; left <= right;)
     {
         int mid = left + (right - left) / 2;
         if (arr[mid] == k)
@@ -46,7 +46,7 @@ pair<int, int> firstAndLastPosition(vector<int> &arr, int n, int k)
         int mid = left + (right - left) / 2;
         if (arr[mid] == k)
         {
-            if (mid == n-1 || arr[mid + 1] != k)
+            if (mid == n - 1 || arr[mid + 1] != k)
             {
                 last = mid;
                 break;
