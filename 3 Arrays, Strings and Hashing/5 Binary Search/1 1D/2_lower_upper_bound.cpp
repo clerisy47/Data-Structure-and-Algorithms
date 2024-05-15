@@ -14,8 +14,7 @@ using namespace std;
 // Binary Search
 int lowerBound(vector<int> arr, int n, int k)
 {
-    int left = 0, right = n - 1;
-    while (left <= right)
+    for (int left = 0, right = n - 1; left <= right;)
     {
         int mid = left + (right - left) / 2;
         if (arr[mid] >= k)
@@ -32,8 +31,7 @@ int lowerBound(vector<int> arr, int n, int k)
 
 int upperBound(vector<int> &arr, int k, int n)
 {
-    int left = 0, right = n - 1;
-    while (left <= right)
+    for (int left = 0, right = n - 1; left <= right;)
     {
         int mid = left + (right - left) / 2;
         if (arr[mid] > k)
