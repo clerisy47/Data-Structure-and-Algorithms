@@ -12,8 +12,7 @@ using namespace std;
 int getFloor(vector<int> &arr, int k)
 {
     int n = arr.size();
-    int left = 0, right = n - 1, answer = -1;
-    while (left <= right)
+    for (int left = 0, right = n - 1; left <= right;)
     {
         int mid = left + (right - left) / 2;
         if (arr[mid] <= k)
