@@ -1,3 +1,5 @@
+// https://www.naukri.com/code360/problems/longest-subarray-with-sum-k_5713505
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -59,7 +61,7 @@ int longestSubarrayWithSumK(vector<int> a, long long k)
     for (int l=0, r = 0; r <= n - 1; r++)
     {
         sum += a[r];
-        while (sum > k)
+        if (sum > k) // while is replaced by if as we're only looking for the longest
         {
             sum -= a[l];
             l++;
@@ -69,7 +71,7 @@ int longestSubarrayWithSumK(vector<int> a, long long k)
     }
     return max_len;
 }
-// TC: O(2n)
+// TC: O(n) (Using while loop is O(2n))
 // SC: O(1)
 
 int main()
