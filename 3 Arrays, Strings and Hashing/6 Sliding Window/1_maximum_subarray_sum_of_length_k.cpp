@@ -1,3 +1,5 @@
+// https://www.geeksforgeeks.org/problems/max-sum-subarray-of-size-k5313/1
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -10,7 +12,7 @@ int maximumSubarraySum(vector<int> &arr, int k)
         currSum += arr[i];
     }
     int maxSum = currSum;
-    for (int l = 0, r = k; r <= n - 1; l++, r++) // here pointer l removes wheras r adds new eliminates to window hence are assigned with indexes accordingly
+    for (int l = 0, r = k; r <= n - 1; l++, r++) // here pointer l removes wheras r adds new elements to the window hence are assigned with indexes accordingly
     {
         currSum += arr[r] - arr[l];
         if (currSum > maxSum)
