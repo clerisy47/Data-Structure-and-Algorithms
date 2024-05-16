@@ -1,13 +1,11 @@
+// https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards/description/
+
 #include <bits/stdc++.h>
 using namespace std;
 
 int maxScore(vector<int> &arr, int k)
 {
-    int currSum = 0;
-    for (int i = 0; i <= k - 1; i++)
-    {
-        currSum += arr[i];
-    }
+    int currSum = accumulate(arr.begin(), arr.begin() + k, 0);
     int maxSum = currSum;
     for (int l = k - 1, r = arr.size() - 1; l >= 0; l--, r--)
     {
