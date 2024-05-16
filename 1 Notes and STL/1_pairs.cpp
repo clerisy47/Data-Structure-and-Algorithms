@@ -22,5 +22,5 @@ int main(){
     p_shallow_copy.first = 1;
     cout<<p.first<<" "<<p.second<<endl;
 
-
+ // for any containers .size() is O(1)
 }
