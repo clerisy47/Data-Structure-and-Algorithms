@@ -21,10 +21,10 @@ bool generate(int i, vector<int> &arr, int k, vector<vector<int>> &dp)
         return dp[i][k];
     }
 
-    int l = generate(i - 1, arr, k - arr[i], dp);
-    int r = generate(i - 1, arr, k, dp);
+    int p1 = generate(i - 1, arr, k - arr[i], dp);
+    int p2 = generate(i - 1, arr, k, dp);
 
-    return dp[i][k] = l || r;
+    return dp[i][k] = p1 || p2;
 }
 
 int isSubsetSum(vector<int> &arr, int k)
@@ -51,10 +51,10 @@ int isSubsetSum(vector<int> &arr, int k)
                 dp[i][j] = arr[0] == j;
                 continue;
             }
-            bool l = j - arr[i] >= 0 ? dp[i - 1][j - arr[i]] : false;
-            bool r = dp[i - 1][j];
+            bool p1 = j - arr[i] >= 0 ? dp[i - 1][j - arr[i]] : false;
+            bool p2 = dp[i - 1][j];
 
-            dp[i][j] = l || r;
+            dp[i][j] = p1 || p2;
         }
     }
     return dp[arr.size() - 1][k];
@@ -78,10 +78,10 @@ int isSubsetSum(vector<int> &arr, int k)
                 dp[1][j] = arr[0] == j;
                 continue;
             }
-            bool l = j - arr[i] >= 0 ? dp[0][j - arr[i]] : false;
-            bool r = dp[0][j];
+            bool p1 = j - arr[i] >= 0 ? dp[0][j - arr[i]] : false;
+            bool p2 = dp[0][j];
 
-            dp[1][j] = l || r;
+            dp[1][j] = p1 || p2;
         }
         dp[0] = dp[1];
     }
