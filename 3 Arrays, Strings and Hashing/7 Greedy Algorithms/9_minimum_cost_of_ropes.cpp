@@ -1,15 +1,17 @@
+// https://www.geeksforgeeks.org/problems/minimum-cost-of-ropes-1587115620/1
+
 #include <bits/stdc++.h>
 using namespace std;
 
-long long minCost(long long arr[], long long n)
+int minCost(int arr[], int n)
 {
-    multiset<long long> ms(arr, arr + n); // can't do in the given array itself by sorting as the new rope may not be the smallest hence need to be inserted in it splace
-    long long totalSum = 0;
+    multiset<int> ms(arr, arr + n); // can't do in the given array itself by sorting as the new rope may not be the smallest hence need to be inserted in it splace
+    int totalSum = 0;
     while (ms.size()>1) // if there is 1 ropes left then it is the final rope
     {
-        long long top1 = *ms.begin();
-        long long top2 = *(++ms.begin());
-        long long currSum = top1 + top2;
+        int top1 = *ms.begin();
+        int top2 = *(++ms.begin());
+        int currSum = top1 + top2;
         totalSum += currSum;
         ms.erase(ms.begin());
         ms.erase(ms.begin());
