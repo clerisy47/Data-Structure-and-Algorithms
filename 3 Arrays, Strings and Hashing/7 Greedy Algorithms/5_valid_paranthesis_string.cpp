@@ -1,7 +1,9 @@
+// https://leetcode.com/problems/valid-parenthesis-string/description/
+
 #include <bits/stdc++.h>
 using namespace std;
 
-// '(' and ')'
+// if it was '(' and ')' only
 bool checkValidString(string s)
 {
     int ctr = 0;

@@ -1,3 +1,5 @@
+// https://www.geeksforgeeks.org/problems/fractional-knapsack-1587115620/1
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -23,14 +25,15 @@ double maximumValue(vector<pair<int, int>> &items, int n, int w) // {weight, val
         }
         max_weight += curr_weight;
         max_value += curr_value;
-        cout<<max_weight<<" "<<max_value<<endl;
+        cout << max_weight << " " << max_value << endl;
     }
     return max_value;
 }
 
 // using comaparator
 
-bool comparator(pair<int, int> &a, pair<int, int> &b) {
+bool comparator(pair<int, int> &a, pair<int, int> &b)
+{
     double r1 = (double)a.second / a.first;
     double r2 = (double)b.second / b.first;
     return r1 > r2;
