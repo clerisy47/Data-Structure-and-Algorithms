@@ -1,6 +1,7 @@
+// https://www.geeksforgeeks.org/find-minimum-number-of-coins-that-make-a-change/
+
 #include <bits/stdc++.h>
 using namespace std;
-
 
 // for truly greedy approach apply linear search from the end
 
@@ -31,7 +32,7 @@ int nCoins(int n, vector<int> &coins)
     while (n)
     {
         ctr++;
-        n -=  getFloor(coins, n);
+        n -= getFloor(coins, n);
     }
     return ctr;
 }
