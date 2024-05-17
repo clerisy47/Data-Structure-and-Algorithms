@@ -1,3 +1,5 @@
+// https://www.naukri.com/code360/problems/job-sequencing-problem_1169460
+
 #include <bits/stdc++.h>
 using namespace std;
 
