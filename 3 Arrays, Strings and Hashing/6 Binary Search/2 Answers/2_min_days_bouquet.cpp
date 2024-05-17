@@ -30,7 +30,7 @@ int minDays(vector<int> &bloomDay, int m, int k)
     {
         int mid = i + (j - i) / 2;
         int number_of_bouquets = nBouquets(bloomDay, k, mid);
-        if (m <= number_of_bouquets)
+        if (number_of_bouquets >= m)
         {
             ans = mid;
             j = mid - 1;
