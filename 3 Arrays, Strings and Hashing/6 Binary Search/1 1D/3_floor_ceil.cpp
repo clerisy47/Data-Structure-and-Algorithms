@@ -17,7 +17,7 @@ int getFloor(vector<int> &arr, int k)
     for (int i = 0, j = n - 1; i <= j;)
     {
         int mid = i + (j - i) / 2;
-        if (k >= arr[mid])
+        if ( arr[mid]<=k)
         {
             // if (mid == n - 1 || arr[mid + 1] > k) // optimal but can't be used in bs in answers problem
             //     return arr[mid];
