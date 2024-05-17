@@ -12,10 +12,10 @@ int f(int i, int prev, vector<int> &arr, vector<vector<int>> &dp)
         return dp[i][prev + 1];
     }
     // take
-    int l = (prev == -1 || arr[i] > arr[prev]) ? 1 + f(i + 1, i, arr, dp) : 0;
+    int p1 = (prev == -1 || arr[i] > arr[prev]) ? 1 + f(i + 1, i, arr, dp) : 0;
     // not take
-    int r = f(i + 1, prev, arr, dp);
-    return dp[i][prev + 1] = max(l, r);
+    int p2 = f(i + 1, prev, arr, dp);
+    return dp[i][prev + 1] = max(p1, p2);
 }
 int lengthOfLIS(vector<int> &arr)
 {
@@ -41,9 +41,9 @@ int lengthOfLIS(vector<int> &arr)
             }
             else
             {
-                int l = (prev == -1 || arr[i] > arr[prev]) ? 1 + dp[i + 1][i + 1] : 0; // second index is normalized hence i becomes i+1
-                int r = dp[i + 1][prev + 1];
-                dp[i][prev + 1] = max(l, r);
+                int p1 = (prev == -1 || arr[i] > arr[prev]) ? 1 + dp[i + 1][i + 1] : 0; // second index is normalized hence i becomes i+1
+                int p2 = dp[i + 1][prev + 1];
+                dp[i][prev + 1] = max(p1, p2);
             }
         };
     }
@@ -66,9 +66,9 @@ int lengthOfLIS(vector<int> &arr)
             }
             else
             {
-                int l = (prev == -1 || arr[i] > arr[prev]) ? 1 + dp[1][i + 1] : 0; // second index is normalized hence i becomes i+1
-                int r = dp[1][prev + 1];
-                dp[0][prev + 1] = max(l, r);
+                int p1 = (prev == -1 || arr[i] > arr[prev]) ? 1 + dp[1][i + 1] : 0; // second index is normalized hence i becomes i+1
+                int p2 = dp[1][prev + 1];
+                dp[0][prev + 1] = max(p1, p2);
             }
         }
         dp[0] = dp[1];
