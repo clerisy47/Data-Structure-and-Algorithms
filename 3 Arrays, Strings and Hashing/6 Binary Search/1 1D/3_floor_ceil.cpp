@@ -13,15 +13,15 @@ using namespace std;
 
 int getFloor(vector<int> &arr, int k)
 {
-    int n = arr.size(), ans=-1;
+    int n = arr.size(), ans = -1;
     for (int i = 0, j = n - 1; i <= j;)
     {
         int mid = i + (j - i) / 2;
-        if (arr[mid] <= k)
+        if (k >= arr[mid])
         {
             // if (mid == n - 1 || arr[mid + 1] > k) // optimal but can't be used in bs in answers problem
             //     return arr[mid];
-            ans=arr[mid];
+            ans = arr[mid];
             i = mid + 1;
         }
         else
@@ -31,8 +31,6 @@ int getFloor(vector<int> &arr, int k)
 }
 
 // ceil is basically element in lower bound
-
-
 
 int main()
 {
