@@ -10,18 +10,16 @@ int nBouquets(vector<int> &bloomDay, int k, int day)
     {
         if (bloomDay[j] > day)
         {
-            i=j+1;
+            i = j + 1;
         }
         if (j - i + 1 == k)
         {
             ctr++;
-            i=j+1;
-
+            i = j + 1;
         }
     }
     return ctr;
 }
-
 
 int minDays(vector<int> &bloomDay, int m, int k)
 {
@@ -32,7 +30,7 @@ int minDays(vector<int> &bloomDay, int m, int k)
     {
         int mid = i + (j - i) / 2;
         int number_of_bouquets = nBouquets(bloomDay, k, mid);
-        if (number_of_bouquets >= m)
+        if (m <= number_of_bouquets)
         {
             ans = mid;
             j = mid - 1;
@@ -44,7 +42,6 @@ int minDays(vector<int> &bloomDay, int m, int k)
     }
     return ans;
 }
-
 
 int main()
 {
