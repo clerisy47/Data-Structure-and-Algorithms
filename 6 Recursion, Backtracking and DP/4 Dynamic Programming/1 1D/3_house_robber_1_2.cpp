@@ -1,3 +1,6 @@
+// https://leetcode.com/problems/house-robber/description/
+// https://leetcode.com/problems/house-robber-ii/description/
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -11,12 +14,12 @@ int f(int i, vector<int> &arr, vector<int> &dp)
         return dp[i];
 
     // pick
-    int l = arr[i] + f(i - 2, arr, dp);
+    int p1 = arr[i] + f(i - 2, arr, dp);
 
     // not pick
-    int r = f(i - 1, arr, dp);
+    int p2 = f(i - 1, arr, dp);
 
-    return dp[i] = max(l, r);
+    return dp[i] = max(p1, p2);
 }
 
 int rob(vector<int> &arr)
@@ -35,9 +38,9 @@ int rob(vector<int> &arr)
     dp[1] = max(arr[0], arr[1]);
     for (int i = 2; i <= n - 1; i++)
     {
-        int l = arr[i] + dp[i - 2];
-        int r = dp[i - 1];
-        dp[i] = max(l, r);
+        int p1 = arr[i] + dp[i - 2];
+        int p2 = dp[i - 1];
+        dp[i] = max(p1, p2);
     }
     return dp[n - 1];
 }
@@ -51,10 +54,10 @@ int rob(vector<int> &arr)
     dp[1] = max(arr[0], arr[1]);
     for (int i = 2; i <= n - 1; i++)
     {
-        int l = arr[i] + dp[0];
-        int r = dp[1];
+        int p1 = arr[i] + dp[0];
+        int p2 = dp[1];
         dp[0]=dp[1];
-        dp[1]=max(l, r);
+        dp[1]=max(p1, p2);
     }
     return dp[1];
 }
