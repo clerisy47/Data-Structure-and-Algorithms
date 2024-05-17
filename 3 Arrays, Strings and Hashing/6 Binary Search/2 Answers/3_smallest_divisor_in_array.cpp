@@ -21,7 +21,7 @@ int smallestDivisor(vector<int> &arr, int threshold)
     {
         int mid = (i + j) / 2;
         int sum_quo = division(arr, mid);
-        if (threshold >= sum_quo)  
+        if (sum_quo <=threshold)  
         {
             j = mid - 1;    // mid is inversely proportional to sum_quo
         }
