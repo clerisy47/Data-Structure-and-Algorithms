@@ -1,3 +1,6 @@
+// https://leetcode.com/problems/fibonacci-number/description/
+// https://leetcode.com/problems/climbing-stairs/description/
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -11,9 +14,9 @@ int fibonacci(int n, int dp[]) // size of dp = x+1
     {
         return dp[n];
     }
-    int l = fibonacci(n - 1, dp);
-    int r = fibonacci(n - 2, dp);
-    return dp[n] = l + r;
+    int p1 = fibonacci(n - 1, dp);
+    int p2 = fibonacci(n - 2, dp);
+    return dp[n] = p1 + p2;
 }
 // Time Complexity O(n)
 // Space Complexity O(2n)
@@ -27,9 +30,9 @@ int fibonacci(int n)
     dp[1] = 1;
     for (int i = 2; i <= n; i++)
     {
-        int first = dp[i - 1]; 
-        int second = dp[i - 2];
-        dp[i] = first + second;
+        int p1 = dp[i - 1]; 
+        int p2 = dp[i - 2];
+        dp[i] = p1 + p2;
     }
     return dp[n];
 }
@@ -46,10 +49,10 @@ int fibonacci(int n)
     dp[1] = 1;
     for (int i = 2; i <= n; i++)
     {
-        int first = dp[1]; 
-        int second = dp[0];
+        int p1 = dp[1]; 
+        int p2 = dp[0];
         dp[0] = dp[1];
-        dp[1] = first + second;
+        dp[1] = p1 + p2;
     }
     return dp[1];
 }
