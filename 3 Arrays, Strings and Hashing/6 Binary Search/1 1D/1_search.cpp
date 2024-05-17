@@ -28,7 +28,7 @@ int binarySearch(int k, vector<int> &arr)
         int mid = i + ((j - i) >> 1); // optimized using bit operator
         if (arr[mid] == k)
             return mid;
-        else if (k < arr[mid])
+        else if (arr[mid]>k)
             j = mid - 1; // eleiminating j side
         else
             i = mid + 1;
@@ -43,9 +43,9 @@ int recursiveBinarySearch(int k, vector<int> &arr, int i, int j)
     if (i > j)
         return -1;
     int mid = i + (j - i) / 2;
-    if (k == arr[mid])
+    if (arr[mid]==k)
         return mid;
-    else if (k < arr[mid])
+    else if ( arr[mid]>k)
         return recursiveBinarySearch(k, arr, i, mid - 1);
     else
         return recursiveBinarySearch(k, arr, mid + 1, j);
