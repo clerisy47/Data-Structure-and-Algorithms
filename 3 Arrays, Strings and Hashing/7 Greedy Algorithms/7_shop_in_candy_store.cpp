@@ -1,3 +1,5 @@
+// https://www.geeksforgeeks.org/problems/shop-in-candy-store1145/1
+
 #include <bits/stdc++.h>
 using namespace std;
 
