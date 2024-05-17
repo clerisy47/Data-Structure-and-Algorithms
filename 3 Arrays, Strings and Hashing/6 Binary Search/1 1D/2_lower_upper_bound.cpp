@@ -21,7 +21,7 @@ int lowerBound(vector<int> arr, int n, int k)
     for (int i = 0, j = n - 1; i <= j;)
     {
         int mid = i + (j - i) / 2;
-        if (arr[mid] >= k)
+        if (k<=arr[mid])
         {
             // if (mid == 0 || arr[mid - 1] < k) // optimal but can't be used in bs in answers problem
             //     return mid;
@@ -40,7 +40,7 @@ int upperBound(vector<int> &arr, int k, int n)
     for (int i = 0, j = n - 1; i <= j;)
     {
         int mid = i + (j - i) / 2;
-        if (arr[mid] > k)
+        if (k<=arr[mid])
         {
             // if (mid == 0 || arr[mid - 1] <= k) // optimal but can't be used in bs in answers problem
             //     return mid;
