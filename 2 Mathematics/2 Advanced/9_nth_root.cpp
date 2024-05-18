@@ -1,3 +1,6 @@
+// https://www.geeksforgeeks.org/problems/square-root/0
+// https://www.geeksforgeeks.org/problems/find-nth-root-of-m5843/1
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -5,9 +8,9 @@ using namespace std;
 // Brute force: Running loop from 1 to n to check if there is nth root
 
 // Optimal
-long long pow(int x, int y, int limit)
+int pow(int x, int y, int limit)
 { // power function which doesn't let ans cross the limit
-    long long ans = 1;
+    int ans = 1;
     for (int i = 0; i <= y - 1; i++)
     {
         ans *= x;
@@ -22,19 +25,19 @@ long long pow(int x, int y, int limit)
 
 int NthRoot(int n, int num)
 {
-    int left = 1, right = num;
+    int i = 1, j = num;
     int ans = num;
-    while (left <= right)
+    while (i <= j)
     {
-        int mid = left + ((right - left)>>1); // optimized using bit operator
+        int mid = i + ((j - i)>>1); // optimized using bit operator
         if (pow(mid, n, num) <= num)
         {
             ans = mid;
-            left = mid + 1;
+            i = mid + 1;
         }
         else
         {
-            right = mid - 1;
+            j = mid - 1;
         }
     }
     return ans;
