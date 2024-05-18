@@ -11,7 +11,7 @@ int main()
     {
         cout << x.first << " " << x.second << endl; // printed in sorted way // acess in O(logn) for each elements ie nlog(n)
     }
-
+    m.find("cde"); // returns it's iterator if present or else returns mp.end();
     m.erase("cde"); // O(logn)
     for (auto &x : m)
     {
@@ -35,7 +35,7 @@ int main()
     }
     cout << endl;
 
-    // Not used much but can be used multiple values in single key
+    // Multimaps is not used much but can be used multiple values in single key
     // Using vectors inside map is prefered
     // Insertion and acess is O(logn)
     // It will sort like regular maps as it is implemented in similar way
