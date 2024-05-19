@@ -4,7 +4,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int fn(int i, int j, string &str1, string &str2, vector<vector<int>> &dp)
+int util(int i, int j, string &str1, string &str2, vector<vector<int>> &dp)
 {
     if (i < 0 || j < 0)
         return 0;
@@ -12,16 +12,16 @@ int fn(int i, int j, string &str1, string &str2, vector<vector<int>> &dp)
         return dp[i][j];
     // equal
     if (str1[i] == str2[j])
-        return dp[i][j] = 1 + fn(i - 1, j - 1, str1, str2, dp);
+        return dp[i][j] = 1 + util(i - 1, j - 1, str1, str2, dp);
     // not equal
-    return dp[i][j] = max(fn(i - 1, j, str1, str2, dp), fn(i, j - 1, str1, str2, dp));
+    return dp[i][j] = max(util(i - 1, j, str1, str2, dp), util(i, j - 1, str1, str2, dp));
 }
 
 int longestCommonSubsequence(string str1, string str2)
 {
     int n = str1.size(), m = str2.size();
     vector<vector<int>> dp(n, vector<int>(m, -1));
-    return fn(n - 1, m - 1, str1, str2, dp);
+    return util(n - 1, m - 1, str1, str2, dp);
 }
 
 int longestCommonSubsequence(string str1, string str2)
