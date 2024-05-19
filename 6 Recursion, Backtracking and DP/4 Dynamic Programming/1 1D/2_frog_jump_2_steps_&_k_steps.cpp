@@ -7,7 +7,7 @@
 using namespace std;
 
 // Memoization
-int f(int i, vector<int> &heights, vector<int> &dp)
+int frogJumpUtil(int i, vector<int> &heights, vector<int> &dp)
 {
     if (i == 0)
         return 0;
@@ -15,16 +15,16 @@ int f(int i, vector<int> &heights, vector<int> &dp)
         return abs(heights[1] - heights[0]);
     if (dp[i] != -1)
         return dp[i];
-    int p1 = f(i - 1, heights, dp) + abs(heights[i] - heights[i - 1]);
+    int p1 = frogJumpUtil(i - 1, heights, dp) + abs(heights[i] - heights[i - 1]);
 
-    int p2 =  f(i - 2, heights, dp) + abs(heights[i] - heights[i - 2]);
+    int p2 =  frogJumpUtil(i - 2, heights, dp) + abs(heights[i] - heights[i - 2]);
     return dp[i] = min(p1, p2);
 }
 
 int frogJump(int n, vector<int> &heights)
 {
     vector<int> dp(n, -1);
-    return f(n - 1, heights, dp);
+    return frogJumpUtil(n - 1, heights, dp);
 }
 
 // Tabulation
