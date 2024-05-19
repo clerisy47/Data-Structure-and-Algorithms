@@ -1,6 +1,5 @@
 // https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/
 
-// more variants in dp folder
 
 #include <bits/stdc++.h>
 using namespace std;
