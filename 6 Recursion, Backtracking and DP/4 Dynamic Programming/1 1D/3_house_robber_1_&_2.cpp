@@ -4,7 +4,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int f(int i, vector<int> &arr, vector<int> &dp)
+int robUtil(int i, vector<int> &arr, vector<int> &dp)
 {
     if (i == 0)
         return arr[0];
@@ -14,10 +14,10 @@ int f(int i, vector<int> &arr, vector<int> &dp)
         return dp[i];
 
     // pick
-    int p1 = arr[i] + f(i - 2, arr, dp);
+    int p1 = arr[i] + robUtil(i - 2, arr, dp);
 
     // not pick
-    int p2 = f(i - 1, arr, dp);
+    int p2 = robUtil(i - 1, arr, dp);
 
     return dp[i] = max(p1, p2);
 }
@@ -26,7 +26,7 @@ int rob(vector<int> &arr)
 {
     int n = arr.size();
     vector<int> dp(n, -1);
-    return f(n - 1, arr, dp);
+    return robUtil(n - 1, arr, dp);
 }
 
 int rob(vector<int> &arr)
