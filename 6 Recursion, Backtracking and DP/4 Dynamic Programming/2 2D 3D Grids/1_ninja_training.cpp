@@ -3,7 +3,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int f(int i, int prev, vector<vector<int>> &points, vector<vector<int>> &dp)
+int generate(int i, int prev, vector<vector<int>> &points, vector<vector<int>> &dp)
 {
     if (dp[i][prev] != -1)
     {
@@ -26,7 +26,7 @@ int f(int i, int prev, vector<vector<int>> &points, vector<vector<int>> &dp)
     {
         if (j != prev)
         {
-            int currPoints = points[i][j] + f(i - 1, j, points, dp);
+            int currPoints = points[i][j] + generate(i - 1, j, points, dp);
             maxPoints = max(maxPoints, currPoints);
         }
     }
@@ -36,7 +36,7 @@ int f(int i, int prev, vector<vector<int>> &points, vector<vector<int>> &dp)
 int ninjaTraining(int n, vector<vector<int>> &points)
 {
     vector<vector<int>> dp(n, vector<int>(4, -1)); // 4 to store 0, 1, 2 and 3 (at start with no prev)
-    return f(n - 1, 3, points, dp);
+    return generate(n - 1, 3, points, dp);
 }
 
 int ninjaTraining(int n, vector<vector<int>> &points)
