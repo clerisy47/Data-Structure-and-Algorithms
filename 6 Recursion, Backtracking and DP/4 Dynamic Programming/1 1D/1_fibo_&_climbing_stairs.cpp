@@ -1,22 +1,31 @@
 // https://leetcode.com/problems/fibonacci-number/description/
 // https://leetcode.com/problems/climbing-stairs/description/
 
+// the climbing stairs problem is also same as fibonacci series but it starts from 1 and not from 0
+
 #include <bits/stdc++.h>
 using namespace std;
 
 // Memoization
 // Top bottom appoach
-int fibonacci(int n, int dp[]) // size of dp = x+1
+
+int fibonacciUtil(int n, vector<int> dp)
 {
     if (n <= 1)
         return n;
-    if (dp[n]!=-1)
+    if (dp[n] != -1)
     {
         return dp[n];
     }
-    int p1 = fibonacci(n - 1, dp);
-    int p2 = fibonacci(n - 2, dp);
+    int p1 = fibonacciUtil(n - 1, dp);
+    int p2 = fibonacciUtil(n - 2, dp);
     return dp[n] = p1 + p2;
+}
+
+int fib(int n) 
+{
+    vector<int> dp(n + 1, -1); // size of dp = n+1
+    return fibonacciUtil(n, dp);
 }
 // Time Complexity O(n)
 // Space Complexity O(2n)
@@ -30,7 +39,7 @@ int fibonacci(int n)
     dp[1] = 1;
     for (int i = 2; i <= n; i++)
     {
-        int p1 = dp[i - 1]; 
+        int p1 = dp[i - 1];
         int p2 = dp[i - 2];
         dp[i] = p1 + p2;
     }
@@ -49,7 +58,7 @@ int fibonacci(int n)
     dp[1] = 1;
     for (int i = 2; i <= n; i++)
     {
-        int p1 = dp[1]; 
+        int p1 = dp[1];
         int p2 = dp[0];
         dp[0] = dp[1];
         dp[1] = p1 + p2;
@@ -60,8 +69,6 @@ int fibonacci(int n)
 // Space Complexity O(1)
 
 // O(logn) in mathematics folder
-
-// the climbining stairs problem is also same as fibonacci series but it starts from 1 and not from 0
 
 
 int main()
