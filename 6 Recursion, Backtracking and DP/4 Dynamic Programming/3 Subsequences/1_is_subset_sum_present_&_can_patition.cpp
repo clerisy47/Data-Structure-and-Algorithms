@@ -3,7 +3,7 @@
 
 #include <bits/stdc++.h>
 using namespace std;
-bool generate(int i, vector<int> &arr, int k, vector<vector<int>> &dp)
+bool util(int i, vector<int> &arr, int k, vector<vector<int>> &dp)
 {
     if (k == 0)
     {
@@ -15,15 +15,15 @@ bool generate(int i, vector<int> &arr, int k, vector<vector<int>> &dp)
     }
     if (i == 0)
     {
-        return arr[0] == k;
+        return arr[i] == k;
     }
     if (dp[i][k] != -1)
     {
         return dp[i][k];
     }
 
-    bool p1 = generate(i - 1, arr, k - arr[i], dp);
-    bool p2 = generate(i - 1, arr, k, dp);
+    bool p1 = util(i - 1, arr, k - arr[i], dp);
+    bool p2 = util(i - 1, arr, k, dp);
 
     return dp[i][k] = p1 || p2;
 }
@@ -31,7 +31,7 @@ bool generate(int i, vector<int> &arr, int k, vector<vector<int>> &dp)
 bool isSubsetSum(vector<int> &arr, int k)
 {
     vector<vector<int>> dp(arr.size(), vector<int>(k + 1, -1));
-    return generate(arr.size() - 1, arr, k, dp);
+    return util(arr.size() - 1, arr, k, dp);
 }
 
 bool isSubsetSum(vector<int> &arr, int k)
