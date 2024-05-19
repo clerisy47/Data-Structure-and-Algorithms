@@ -1,15 +1,16 @@
+// https://www.geeksforgeeks.org/problems/next-greater-element-2/0
+
 #include <bits/stdc++.h>
 using namespace std;
 
-#include<stack>
-vector<int> nextGreaterElementII(vector<int> &arr)
+vector<int> nextGreaterElement(vector<int> &arr)
 {
     int n = arr.size();
-    if(n==1)
-      return {-1};
+    if (n == 1)
+        return {-1};
     stack<int> st;
     vector<int> output(n);
-    for (int i = 2 * n - 3; i >= 0; i--) // adding hypothetical indexes in array (n-1+n-1-1) last element mayn't be repeated
+    for (int i = 2 * n - 1; i >= 0; i--) // adding hypothetical indexes in array
     {
         while (!st.empty() && st.top() <= arr[i % n])
         {
