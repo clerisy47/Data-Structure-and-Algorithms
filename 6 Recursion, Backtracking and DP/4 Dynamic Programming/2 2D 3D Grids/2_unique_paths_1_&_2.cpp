@@ -6,7 +6,7 @@ using namespace std;
 
 // question is saying can move down right but since we're starting from n-1, we do move up and left
 
-int f(int i, int j, vector<vector<int>> &dp, vector<vector<int>> &obstacleGrid)
+int util(int i, int j, vector<vector<int>> &dp, vector<vector<int>> &obstacleGrid)
 {
     // for unique paths 1 (which doesn't count for obstacle) just remove this if statement
     if (obstacleGrid[i][j])
@@ -18,8 +18,8 @@ int f(int i, int j, vector<vector<int>> &dp, vector<vector<int>> &obstacleGrid)
     if (dp[i][j] != -1)
         return dp[i][j];
 
-    int up = j >= 1 ? f(i, j - 1, dp, obstacleGrid) : 0;
-    int left = i >= 1 ? f(i - 1, j, dp, obstacleGrid) : 0;
+    int up = j >= 1 ? util(i, j - 1, dp, obstacleGrid) : 0;
+    int left = i >= 1 ? util(i - 1, j, dp, obstacleGrid) : 0;
 
     return dp[i][j] = up + left;
 }
@@ -29,7 +29,7 @@ int uniquePathsWithObstacles(vector<vector<int>> &obstacleGrid)
     int m = obstacleGrid.size();
     int n = obstacleGrid[0].size();
     vector<vector<int>> dp(m, vector<int>(n, -1));
-    return f(m - 1, n - 1, dp, obstacleGrid);
+    return util(m - 1, n - 1, dp, obstacleGrid);
 }
 
 // TC: O(N*M)
