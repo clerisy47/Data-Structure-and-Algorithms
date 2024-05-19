@@ -1,3 +1,6 @@
+// https://www.naukri.com/code360/problems/next-greater-element_799354
+// https://www.naukri.com/code360/problems/next-smaller-element_1112581
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -10,7 +13,7 @@ vector<int> nextGreaterElement(vector<int> &arr, int n)
     vector<int> output(n);
     for (int i = n - 1; i >= 0; i--)
     {
-        while (!st.empty() && st.top() <= arr[i])
+        while (!st.empty() && st.top() <= arr[i]) // For next smaller element (!st.empty() && st.top() >= arr[i])
         {
             st.pop();
         }
@@ -23,7 +26,6 @@ vector<int> nextGreaterElement(vector<int> &arr, int n)
             output[i] = st.top();
         }
         st.push(arr[i]);
-
     }
     return output;
 }
