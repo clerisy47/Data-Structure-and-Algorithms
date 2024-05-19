@@ -3,7 +3,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int f(int i, int prev, vector<int> &arr, vector<vector<int>> &dp)
+int util(int i, int prev, vector<int> &arr, vector<vector<int>> &dp)
 {
     if (i == arr.size())
         return 0;
@@ -12,16 +12,16 @@ int f(int i, int prev, vector<int> &arr, vector<vector<int>> &dp)
         return dp[i][prev + 1];
     }
     // take
-    int p1 = (prev == -1 || arr[i] > arr[prev]) ? 1 + f(i + 1, i, arr, dp) : 0;
+    int p1 = (prev == -1 || arr[i] > arr[prev]) ? 1 + util(i + 1, i, arr, dp) : 0;
     // not take
-    int p2 = f(i + 1, prev, arr, dp);
+    int p2 = util(i + 1, prev, arr, dp);
     return dp[i][prev + 1] = max(p1, p2);
 }
 int lengthOfLIS(vector<int> &arr)
 {
     int n = arr.size();
     vector<vector<int>> dp(n, vector<int>(n + 1, -1)); // one extra to store -1
-    return f(0, -1, arr, dp);
+    return util(0, -1, arr, dp);
 }
 
 // TC: O(N^2)
