@@ -21,13 +21,13 @@ int util(int i, bool canBuy, vector<int> &prices, vector<vector<int>> &dp)
     int profit;
     if (canBuy)
     {
-        int p1 = -prices[i] + util(i + 1, false, prices, dp);  // for transaction fee problem add -fee either in p1 or in p3
+        int p1 = -prices[i] + util(i + 1, false, prices, dp);  
         int p2 = util(i + 1, canBuy, prices, dp);
         profit = max(p1, p2);
     }
     else
     {
-        int p3 = prices[i] + util(i + 1, true, prices, dp); // for cooldown problem, instead of i+1 do i+2 in p3 only
+        int p3 = prices[i] + util(i + 1, true, prices, dp); // for cooldown problem, instead of i+1 do i+2 in p3 only // for transaction fee problem add -fee in p3
         int p4 = util(i + 1, canBuy, prices, dp);
         profit = max(p3, p4);
     }
