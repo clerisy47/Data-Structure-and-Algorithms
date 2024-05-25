@@ -1,11 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-bool checkOdd(int num)
+bool checkEven(int num)
 {
-    return num & 1; //  num % 2
+    return (num & 1) == 0; //  num % 2 == 0
+    // Here as precedence of comparator operator is higher than bitwise operators. Hence brackets must be used
 }
-// note while using comparator operator don't do num & 1 == 1 instead (num & 1) == 1
 
 int main()
 {
