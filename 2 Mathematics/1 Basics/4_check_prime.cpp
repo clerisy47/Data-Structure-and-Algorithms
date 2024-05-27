@@ -1,3 +1,5 @@
+// sieve of eratosthenes method in sieve folder
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -15,6 +17,7 @@ bool check_prime(int n)
     }
     return 0;
 }
-    // Time Complexity: O(n)
+// Time Complexity: O(n)
 
-    // For twin prime check if their difference is 2 and both are prime numbers.
+// For twin prime check if their difference is 2 and both are prime numbers.
+
