@@ -13,15 +13,15 @@ void fillSieve()
     {
         if (isPrime[i] == true)
         {
-            for (int j = i * i; j <= N-1; j += i)
+            for (int j = i * i; j <= N - 1; j += i)
             {
                 isPrime[j] = false;
             }
         }
     }
-    // Time Complexity: O(n * log log n)
-    // Space Complexity: O(n)
 }
+// Time Complexity: O(n * log log n)
+// Space Complexity: O(n)
 
 void print_prime(int n)
 {
