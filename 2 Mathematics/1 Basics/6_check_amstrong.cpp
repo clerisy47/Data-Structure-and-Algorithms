@@ -1,3 +1,5 @@
+// https://www.geeksforgeeks.org/problems/armstrong-numbers2727/1
+
 #include <bits/stdc++.h>
 
 bool isArmstrong(int x)
