@@ -1,3 +1,4 @@
+// https://leetcode.com/problems/happy-number/
 // A happy number is a number which eventually reaches 1 when replaced by the sum of the square of each digit.
 
 #include <bits/stdc++.h>
