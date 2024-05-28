@@ -1,3 +1,5 @@
+// https://leetcode.com/problems/powx-n/
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -22,8 +24,9 @@ double power(double x, int n)
 // Binary eEponentiation
 
 // Recursion
-double power(double x, int n)
+double power(double x, int num)
 {
+    long n = num; // when n = INT_MIN, -n will overflow
     if (n == 0)
         return 1.0;
     if (n < 0)
@@ -34,24 +37,23 @@ double power(double x, int n)
 }
 
 // Iteration
-double power(double x, int n)
+double power(double x, int num)
 {
     double ans = 1.0;
+    long n = num;
     if (n < 0)
     {
         n *= -1;
         x = 1 / x;
     }
-    while (n > 0)
+    for (; n > 0; n >>= 1, x = x * x) // n /= 2;
     {
         // only add to answer if its odd
-        if (n&1) //(n % 2 != 0)
+        if (n & 1) //(n % 2 != 0)
         {
             ans *= x;
             // n--: no need to do this since after division (n-1)/2 = n/2  when n is odd
         }
-        x = x * x;
-        n>>=1;      // n /= 2;
     }
     return ans;
 }
