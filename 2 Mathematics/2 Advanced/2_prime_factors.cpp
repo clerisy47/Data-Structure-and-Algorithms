@@ -1,5 +1,16 @@
+// https://www.geeksforgeeks.org/problems/prime-factors5052/1
+
+// Optimized version in sieve folder
+
 #include<bits/stdc++.h>
 using namespace std;
+
+void printVector(vector<int>& vec) {
+    for(const auto& val : vec) {
+        cout << val << ' ';
+    }
+    cout << endl;
+}
 
 // Brute
 bool isPrime(int n){
@@ -44,13 +55,6 @@ vector<int> primeFactors(int n)
 
 // Optimized version in sieve folder
 
-
-void printVector(vector<int>& vec) {
-    for(const auto& val : vec) {
-        cout << val << ' ';
-    }
-    cout << endl;
-}
 
 int main(){
     ios_base::sync_with_stdio(false);
