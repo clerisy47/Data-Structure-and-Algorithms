@@ -1,3 +1,5 @@
+// https://www.geeksforgeeks.org/problems/all-divisors-of-a-number/1
+
 #include <bits/stdc++.h>
 using namespace std;
 
