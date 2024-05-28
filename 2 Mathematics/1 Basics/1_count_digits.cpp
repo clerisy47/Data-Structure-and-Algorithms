@@ -1,4 +1,4 @@
-// https://www.geeksforgeeks.org/problems/count-digits5716/1
+// https://www.geeksforgeeks.org/problems/ctr-digits5716/1
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -6,14 +6,12 @@ using namespace std;
 // Brute Force
 int countDigits(int n)
 {
-    int count = 0, digit;
-    while (n != 0)
+    int ctr = 0;
+    for (int i = n; i != 0; i /= 10)
     {
-        digit = n % 10;
-        count++;
-        n /= 10;
+        ctr++;
     }
-    return count;
+    return ctr;
 }
 // TC: O(log10(n))
 // SC: O(1)
