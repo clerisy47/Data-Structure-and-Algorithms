@@ -4,14 +4,14 @@
 using namespace std;
 
 // basic ascii arithmetic
-// string toUpper(string &str)
-// {
-//     for (int i = 0; i <= str.size()-1; i++)
-//         {
-//             str[i]=str[i]+'A'-'a';
-//         }
-//     return str;
-// }
+string toUpper(string &str)
+{
+    for (int i = 0; i <= str.size()-1; i++)
+        {
+            str[i]=str[i]+'A'-'a';
+        }
+    return str;
+}
 
 string toUpper(string &str)
 {
