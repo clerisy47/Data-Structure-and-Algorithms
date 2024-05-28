@@ -11,7 +11,7 @@ void fillSieve()
     {
         if (sieve[i])
         {
-            for (int j = i * i; j <= N; j += i)
+            for (int j = i * i; j <= N - 1; j += i)
             {
                 sieve[j] = false;
             }
