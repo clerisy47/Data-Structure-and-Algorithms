@@ -1,3 +1,5 @@
+// https://leetcode.com/problems/count-primes/
+
 // Prime numbers from n1 to n2 (both inclusive)
 // 0<= n <= 100000
 
@@ -6,6 +8,7 @@ using namespace std;
 
 int N = 1000;
 vector<int> count_primes(N, 1);
+
 void fillSieve()
 {
     count_primes[0] = count_primes[1] = 0;
@@ -13,7 +16,7 @@ void fillSieve()
     {
         if (count_primes[i])
         {
-            for (int j = i * i; j <= N; j += i)
+            for (int j = i * i; j <= N - 1; j += i)
             {
                 count_primes[j] = 0;
             }
@@ -27,7 +30,7 @@ void fillSieve()
     }
 }
 
-int countPrime(int l, int r)
+int countPrimes(int l, int r)
 {
     return count_primes[r] - count_primes[l - 1];
     // Time Complexity: O(r-l) + O(n * log log n)
@@ -40,6 +43,6 @@ int main()
     int l, r;
     cin >> l;
     cin >> r;
-    cout << countPrime(l, r) << endl;
+    cout << countPrimes(l, r) << endl;
     return 0;
 }
