@@ -23,6 +23,16 @@ int main()
     }
     cout << endl;
 
+    set<int> a = {1, 2, 3, 4};
+    set<int> b = {2, 3, 4, 5};
+    set<int> ans;
+    set_intersection(a.begin(), a.end(), b.begin(), b.end(), inserter(ans, ans.begin()));
+    set_union(a.begin(), a.end(), b.begin(), b.end(), inserter(ans, ans.begin()));
+    set_difference(a.begin(), a.end(), b.begin(), b.end(), inserter(ans, ans.begin()));
+    set_symmetric_difference(a.begin(), a.end(), b.begin(), b.end(), inserter(ans, ans.begin()));
+
+    bool isSubset = includes(a.begin(), a.end(), b.begin(), b.end());
+
     // Insertion and acess is O(logn) where n varies according to the size of set
     // Duplicates can be used
     // It will sort like regular sets as it is implemented in similar way ie red black trees (self balancing trees)
