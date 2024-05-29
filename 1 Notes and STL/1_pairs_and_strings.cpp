@@ -41,7 +41,9 @@ int main()
     // Copy substring after pos
     string sub = s.substr(pos + 1);
 
-    // prints the result
+    // removes 1 character starting from 0th character 
+    s.erase(0, 1);
+
     cout << "String is: " << sub << endl;
 
     // Copy substring before pos
