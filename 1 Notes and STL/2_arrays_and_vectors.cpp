@@ -51,13 +51,16 @@ int main()
     v.pop_back(); // O(1)
     printVec(v);
 
-    vector<int> v_zeroes(10); 
+    v.erase(v.begin() + 2); // O(n)
+    printVec(v);
+
+    vector<int> v_zeroes(10);
     printVec(v_zeroes);
     vector<int> v_ones(10, 1);
     printVec(v_ones);
 
     // or use fill
-    fill(v_zeroes.begin(), v_zeroes.end(), 0); //int arr[n]; fill(arr, n, 0);
+    fill(v_zeroes.begin(), v_zeroes.end(), 0); // int arr[n]; fill(arr, n, 0);
 
     // Copying of vectors are shallow copy by default
     vector<int> v_copy = v;
