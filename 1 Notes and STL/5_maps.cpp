@@ -25,6 +25,8 @@ int main()
     // Only int, long, double, float, char, string can only be hashed and hence used in unordered map
     // In maps we can use it as we can compare then s1>s2 and so on.
 
+    // Let n = size of map, use unordered map when n is small and map when n is large (when n is large collision occur in unordered_map which causes long time)
+
     unordered_map<int, string> um;
     um[5] = "poop";
     um[6] = "uts";
