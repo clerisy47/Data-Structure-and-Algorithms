@@ -5,24 +5,24 @@ using namespace std;
 
 bool isValid(string str)
 {
-    stack<char> st;
+    deque<char> st;
 
     for (char c : str)
     {
         if (c == '[' || c == '(' || c == '{')
         {
-            st.push(c);
+            st.push_back(c);
         }
         else
         {
             if (st.empty())
                 return false;
-            if (c == ']' && st.top() == '[')
-                st.pop();
-            else if (c == ')' && st.top() == '(')
-                st.pop();
-            else if (c == '}' && st.top() == '{')
-                st.pop();
+            if (c == ']' && st.back() == '[')
+                st.pop_back();
+            else if (c == ')' && st.back() == '(')
+                st.pop_back();
+            else if (c == '}' && st.back() == '{')
+                st.pop_back();
             else
                 return false;
         }
