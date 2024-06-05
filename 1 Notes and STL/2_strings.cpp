@@ -3,26 +3,6 @@ using namespace std;
 
 int main()
 {
-
-    // Pair initialization and printing
-    pair<int, string> p;
-    // p = make_pair(2, "pair");
-    // p = {2, "pair"};
-    cin >> p.first >> p.second;
-    cout << p.first << " " << p.second << endl;
-
-    // Deep copy
-    cout << "Deepcopy" << " ";
-    pair<int, string> p_deep_copy = p;
-    p_deep_copy.first = 1;
-    cout << p.first << " " << p.second << endl;
-
-    // Shallow copy
-    cout << "Pass by reference" << " ";
-    pair<int, string> &p_shallow_copy = p;
-    p_shallow_copy.first = 1;
-    cout << p.first << " " << p.second << endl;
-
     // Take any string
     string s1 = "Geeks";
 
@@ -30,7 +10,6 @@ int main()
     // from position 3)
     string s2 = s1.substr(3, 2);
 
-    // prints the result
     cout << "String is: " << s2 << endl;
 
     string s = "dog:cat";
@@ -51,7 +30,6 @@ int main()
     // "dog:cat".
     sub = s.substr(0, pos);
 
-    // prints the result
     cout << "String is: " << sub;
 
     // checks for substring

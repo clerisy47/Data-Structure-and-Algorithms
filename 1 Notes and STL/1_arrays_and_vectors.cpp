@@ -30,16 +30,16 @@ int main()
 
     // input and printing
     vector<int> v;
-    // v = {1, 2, 3, 4, 5};
+    v = {1, 2, 3, 4, 5};
     //  vector<int> v(begin(arr), end(arr)) // creating through array
-    int n;
-    cin >> n;
-    for (int i = 0; i < n; i++)
-    {
-        int x;
-        cin >> x;
-        v.push_back(x); // O(1)
-    }
+    // int n;
+    // cin >> n;
+    // for (int i = 0; i < n; i++)
+    // {
+    //     int x;
+    //     cin >> x;
+    //     v.push_back(x); // O(1)
+    // }
     printVec(v);
 
     reverse(v.begin(), v.end()); // For arrays, reverse(arr, arr+n); or rev(begin(arr), end(arr))
@@ -67,6 +67,10 @@ int main()
     v.push_back(7);
     printVec(v_copy);
 
+    // for shallow copy
+    copy(v.begin(), v.end(), v_copy.begin());
+
+    // but in functions they do deep copy by default
     // Pass by value
     pass_by_value(v);
     printVec(v);
