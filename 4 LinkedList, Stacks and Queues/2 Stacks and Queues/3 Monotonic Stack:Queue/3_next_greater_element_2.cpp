@@ -8,13 +8,13 @@ vector<int> nextGreaterElement(vector<int> &arr)
     int n = arr.size();
     if (n == 1)
         return {-1};
-    stack<int> st;
+    deque<int> st;
     vector<int> output(n);
     for (int i = 2 * n - 1; i >= 0; i--) // adding hypothetical indexes in array
     {
-        while (!st.empty() && st.top() <= arr[i % n])
+        while (!st.empty() && st.back() <= arr[i % n])
         {
-            st.pop();
+            st.pop_back();
         }
         if (i <= n - 1)
         {
@@ -24,10 +24,10 @@ vector<int> nextGreaterElement(vector<int> &arr)
             }
             else
             {
-                output[i] = st.top();
+                output[i] = st.back();
             }
         }
-        st.push(arr[i % n]);
+        st.push_back(arr[i % n]);
     }
     return output;
 }
