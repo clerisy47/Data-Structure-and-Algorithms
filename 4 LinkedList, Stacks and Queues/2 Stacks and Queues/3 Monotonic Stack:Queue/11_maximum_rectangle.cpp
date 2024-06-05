@@ -5,23 +5,23 @@ using namespace std;
 
 int largestRectangleArea(vector<int> &heights)
 {
-    stack<int> st;
+    deque<int> st;
     int max_area = 0;
     int n = heights.size();
-    for (int i = 0; i <= n; i++) // doing it till all heights are tranversed and at i=n we're clearing the stack
+    for (int i = 0; i <= n; i++) // doing it till all heights are tranversed and at i=n we're clearing the deque
     {
-        while (!st.empty() && (i == n || heights[st.top()] >= heights[i])) // calculating prev smaller element
+        while (!st.empty() && (i == n || heights[st.back()] >= heights[i])) // calculating prev smaller element
         {
-            int height = heights[st.top()];
-            st.pop();
+            int height = heights[st.back()];
+            st.pop_back();
             int width;
             if (st.empty())
                 width = i;
             else
-                width = i - st.top() - 1;
+                width = i - st.back() - 1;
             max_area = max(max_area, width * height);
         }
-        st.push(i);
+        st.push_back(i);
     }
     return max_area;
 }
