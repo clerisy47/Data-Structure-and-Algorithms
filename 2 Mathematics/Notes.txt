@@ -1,0 +1,10 @@
+Greatest Integer Function: Floor Function 
+Lowest Integer Function: Ceiling Function
+
+Bit Manipulation:
+
+pow(2, n) can be replaced by 1<<n
+make sure that if it gives long long output use 1ll << n
+
+A + B = (A | B) + (A & B)
+A + B = A ^ B + 2^(A & B)
