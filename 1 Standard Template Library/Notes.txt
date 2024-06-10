@@ -1,0 +1,25 @@
+Sizes:
+
+Note: 1 byte = 8 bits
+These measurements can vary according to system can be viewed by sizeof() operator
+
+bool: 1 byte (even though theoretically it can be stored into 1 bit)
+char: 1 byte
+short: 2 bytes
+int: 2-4 bytes
+long: at least 4 bytes
+long long: 8 bytes
+float: 4 bytes
+double: 8 bytes
+Pointer: 4 bytes (32 bits system) 8 bytes (64 bytes system)
+
+Local array = 10^7  (size_t)
+Global array = 10^8
+
+Approximately,
+(INT_MIN) -10^9< int < 10^9 (INT_MAX)
+(LONG_MIN) -10^12< long < 10^12 (LONG_MAX)
+(LLONG_MIN) -10^18< long long < 10^18 (LLONG_MAX)
+Similarly, FLT_MIN, DBL_MIN, FLT_MAX and DBL_MAX
+
+Number of iterations in one 7: 10^7
