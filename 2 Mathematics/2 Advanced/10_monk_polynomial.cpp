@@ -6,6 +6,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// Binary Search
 int fun(int a, int b, int c, int x)
 {
     return a * x * x + b * x + c;
