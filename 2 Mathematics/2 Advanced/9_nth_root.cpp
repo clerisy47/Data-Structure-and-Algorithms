@@ -23,6 +23,7 @@ int pow(int x, int y, int limit)
 
 }
 
+// Binary Search
 int NthRoot(int n, int num)
 {
     int i = 1, j = num;
