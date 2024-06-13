@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+using namespace std;
 
 int binary_decimal(long n)
 {
@@ -39,4 +40,9 @@ vector<int> decimal_binary_v(int n)
     }
     reverse(res.begin(), res.end());
     return res;
+}
+
+int main()
+{
+    return 0;
 }
