@@ -1,5 +1,3 @@
-Sizes:
-
 Note: 1 byte = 8 bits
 These measurements can vary according to system can be viewed by sizeof() operator
 
@@ -22,4 +20,4 @@ Approximately,
 (LLONG_MIN) -10^18< long long < 10^18 (LLONG_MAX)
 Similarly, FLT_MIN, DBL_MIN, FLT_MAX and DBL_MAX
 
-Number of iterations in one 7: 10^7
+Number of iterations in one seconds: 10^7 - 10^8
