@@ -80,9 +80,11 @@ int main()
     printVec(v);
 
     vector<int> v2 = {4, 6, 8, 25, 7, 4};
-    int min = *min_element(v2.begin(), v2.end());  // it returns reference to the min element
-    int max = *max_element(v2.begin(), v2.end());  // ie for an array reference, for a vector iterator but both can be dereferenced with *
-    int sum = accumulate(v2.begin(), v2.end(), 0); // 0 is initial sum doesn't return pointer
+    int min = *min_element(v2.begin(), v2.end());          // it returns reference to the min element
+    int max = *max_element(v2.begin(), v2.end());          // ie for an array reference, for a vector iterator but both can be dereferenced with *
+    int sum = accumulate(v2.begin(), v2.end(), 0);         // 0 is initial. sum doesn't return pointer
+    long long sum = accumulate(v2.begin(), v2.end(), 0LL); // for long long addition must use 0LL
+
     int ct = count(v2.begin(), v2.end(), 4);
     cout << min << " " << max << " " << sum << " " << ct << endl;
 
