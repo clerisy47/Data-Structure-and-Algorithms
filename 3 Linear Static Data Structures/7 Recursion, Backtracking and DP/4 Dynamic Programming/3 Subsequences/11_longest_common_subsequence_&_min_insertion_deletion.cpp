@@ -68,10 +68,10 @@ int minDistance(string str1, string str2)
 {
     int n = str1.size();
     int m = str2.size();
-    
+
     int k = longestCommonSubsequence(str1, str2);
-    
-    return n +m - 2*k; // (n-k) deletions and (m-k) insertions on str1 to make it str2
+
+    return n + m - 2 * k; // (n-k) deletions and (m-k) insertions on str1 to make it str2
 }
 
 int main()
