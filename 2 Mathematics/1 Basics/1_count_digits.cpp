@@ -19,7 +19,7 @@ int countDigits(int n)
 // Optimal assuming n is natural number
 int countDigits(int n)
 {
-    return floor(log10(n)) + 1;
+    return log10(n) + 1;
 }
 
 // TC: O(1)
