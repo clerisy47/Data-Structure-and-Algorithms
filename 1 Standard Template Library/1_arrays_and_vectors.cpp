@@ -51,7 +51,8 @@ int main()
     v.pop_back(); // O(1)
     printVec(v);
 
-    v.erase(v.begin() + 2); // O(n)
+    v.erase(v.begin() + 2);   // O(n)
+    v.erase(find(v.begin(), v.end(), 5)); // O(n)
     printVec(v);
 
     vector<int> v_zeroes(10);
