@@ -11,7 +11,8 @@ int main()
     {
         cout << x.first << " " << x.second << endl; // printed in sorted way // acess in O(logn) for each elements ie nlog(n)
     }
-    m.find("cde"); // returns it's iterator if present or else returns mp.end();
+    find(m.begin(), m.end(), "cde");  // returns it's iterator if present or else returns mp.end();
+    m.find("cde");   // same function as above but doesn't work in vector
     m.erase("cde"); // O(logn)
     for (auto &x : m)
     {
