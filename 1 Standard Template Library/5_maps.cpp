@@ -6,7 +6,7 @@ int main()
     map<string, string> m;
     m["lol"] = "poop"; // insertion in O(logn) for integers O(s*logn(n)) for strings, s = size of string
     m["abc"] = "uts";
-    m.insert({"cde", "ava"});
+    m.insert({"cde", "ava"}); // multimap only accept this syntax
     for (auto &x : m)
     {
         cout << x.first << " " << x.second << endl; // printed in sorted way // acess in O(logn) for each elements ie nlog(n)
