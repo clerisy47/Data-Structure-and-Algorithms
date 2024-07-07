@@ -20,7 +20,7 @@ int main()
     // Copy substring after pos
     string sub = s.substr(pos + 1);
 
-    // removes 1 character starting from 0th character 
+    // removes 1 character starting from 0th character
     s.erase(0, 1);
 
     cout << "String is: " << sub << endl;
@@ -36,6 +36,11 @@ int main()
     s1 = "Imissubunny";
     s2 = "ssu";
     cout << (s1.find(s2) != string::npos);
+
+    string s3 = "5032";
+    int a3 = stoi(s3);
+    long long a4 = stoll(s3);   // use this for long long
+    long double a5 = stold(s3); // for long double
 
     // for any containers .size() is O(1)
 }
