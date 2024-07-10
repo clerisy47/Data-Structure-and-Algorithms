@@ -11,15 +11,16 @@ int main()
     {
         cout << x.first << " " << x.second << endl; // printed in sorted way // acess in O(logn) for each elements ie nlog(n)
     }
-    find(m.begin(), m.end(), "cde");  // returns it's iterator if present or else returns mp.end();
-    m.find("cde");   // same function as above but doesn't work in vector
-    m.erase("cde"); // O(logn)
-    for (auto &x : m)
+    find(m.begin(), m.end(), "cde"); // returns it's iterator if present or else returns mp.end();
+    m.find("cde");                   // same function as above but doesn't work in vector
+    m.erase("cde");                  // O(logn)
+    // iterating reversely
+    for (auto it = m.rbegin(); it != m.rend(); ++it)
     {
-        cout << x.first << " " << x.second << endl; // printed in sorted way // acess in O(logn) for each elements ie nlog(n)
+        cout << it->first << " " << it->second << endl;
     }
-    cout << endl
-         << endl;
+
+    cout << endl;
 
     // In unordered map, hashing is done In ordered map but red black trees (self balancing trees) is used for implementation
     // insertion and acessing time complexity in O(1) on average (worst case during collision O(n))
