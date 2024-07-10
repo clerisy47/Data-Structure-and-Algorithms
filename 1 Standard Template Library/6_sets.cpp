@@ -53,8 +53,9 @@ int main()
     // Delete all values:
     ms.erase("a");
 
-    for (auto x : ms)
+    // iterating reversely
+    for (auto it = ms.rbegin(); it != ms.rend(); it++)
     {
-        cout << x << " ";
+        cout << *it << " ";
     }
 }
