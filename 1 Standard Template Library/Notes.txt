@@ -21,3 +21,11 @@ Approximately,
 Similarly, FLT_MIN, DBL_MIN, FLT_MAX and DBL_MAX
 
 Number of iterations in one seconds: 10^7 - 10^8
+
+ASCII of
+A: 65
+Z: 90
+a: 97
+z: 122
+
+For having use array of size 26 if string contains either uppercase or lowercase letters else use array of size 60
