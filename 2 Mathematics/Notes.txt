@@ -1,2 +1,5 @@
 Greatest Integer Function: Floor Function 
 Lowest Integer Function: Ceiling Function
+
+Between 1 and n there are approximately n/ln(n) prime numbers.
+Or you can find the number of prime numbers with separate code as well
