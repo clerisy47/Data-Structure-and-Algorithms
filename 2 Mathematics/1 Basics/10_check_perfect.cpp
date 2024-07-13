@@ -1,12 +1,16 @@
+// https://leetcode.com/problems/perfect-number/description/
 // Number equal to proper divisors (proper means that exclude itself)
 
 #include <bits/stdc++.h>
 using namespace std;
 
-int sum_divisors(int n)
+int isPerfect(int n)
 {
     int sum = 1;
-    for (int i = 2; i <= sqrt(n); i++)
+    if (n == 1)
+        return false;
+
+    for (int i = 2; i * i <= n; i++)
     {
         if (n % i == 0)
         {
@@ -15,7 +19,7 @@ int sum_divisors(int n)
                 sum += n / i;
         }
     }
-    return sum==n;
+    return sum == n;
 }
 
 // Time Complexity: O(n)
