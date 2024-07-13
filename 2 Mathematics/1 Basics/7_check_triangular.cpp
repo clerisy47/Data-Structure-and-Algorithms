@@ -4,7 +4,7 @@ int sum(int n)
 {
     return n * (n + 1) / 2;
 }
-bool check_triangular(int n)
+bool isTriangular(int n)
 {
     for (int i = 0; i <= n; i++)
     {
