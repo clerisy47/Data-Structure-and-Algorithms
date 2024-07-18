@@ -42,6 +42,9 @@ int main()
     // }
     printVec(v);
 
+    vector<int> vv;
+    vv.resize(26); // this doesn't fill the vector with any nymber
+
     reverse(v.begin(), v.end()); // For arrays, reverse(arr, arr+n); or rev(begin(arr), end(arr))
     printVec(v);
 
@@ -51,7 +54,10 @@ int main()
     v.pop_back(); // O(1)
     printVec(v);
 
-    v.erase(v.begin() + 2);   // O(n)
+    int n = v.size();
+    swap(v[n - 1], v[n - 2]);
+
+    v.erase(v.begin() + 2);               // O(n)
     v.erase(find(v.begin(), v.end(), 5)); // O(n)
     printVec(v);
 
@@ -61,7 +67,8 @@ int main()
     printVec(v_ones);
 
     // or use fill
-    fill(v_zeroes.begin(), v_zeroes.end(), 0); // int arr[n]; fill(arr, n, 0);
+    fill(v_zeroes.begin(), v_zeroes.end(), 0);
+    // int arr[n]; fill(arr, arr+ n, 0); or memset(a, 0, sizeof(a)); memset faster
 
     // Copying of vectors are shallow copy by default
     vector<int> v_copy = v;
