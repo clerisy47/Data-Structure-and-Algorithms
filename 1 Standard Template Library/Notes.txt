@@ -29,3 +29,7 @@ a: 97
 z: 122
 
 For having use array of size 26 if string contains either uppercase or lowercase letters else use array of size 60
+
+Errors:
+Sigsev: Accessing out of range index
+Sigtrap: Missing return statement
