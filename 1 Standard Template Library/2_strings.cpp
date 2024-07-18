@@ -3,10 +3,13 @@ using namespace std;
 
 int main()
 {
-    // Take any string
-    string s1 = "Geeks";
-
+    string s1;
+    cin >> s1;
+    // cin.ignore(); // this needs to be done as the cursor will be just after the cin in the past and not in the newline
+    // getline(cin, s1); // input whole line till '/n'
+    // getline(cin, s1, ','); //  custom delimiter
     // Copy two characters of s1 (starting
+
     // from position 3)
     string s2 = s1.substr(3, 2);
 
