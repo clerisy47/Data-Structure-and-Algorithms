@@ -40,6 +40,10 @@ int main()
     s2 = "ssu";
     cout << (s1.find(s2) != string::npos);
 
+    transform(s1.begin(), s1.end(), s1.begin(), ::tolower);
+    transform(s2.begin(), s2.end(), s2.begin(), ::toupper);
+    cout << s1 << " " << s2 << endl;
+
     string s3 = "5032";
     int a3 = stoi(s3);
     long long a4 = stoll(s3);   // use this for long long
