@@ -23,6 +23,7 @@ int maxProduct(vector<int> &nums)
 }
 
 // Kadane's algorithm
+// Dp Algorithm
 int maxProduct(vector<int> &nums)
 {
     int n = nums.size();
