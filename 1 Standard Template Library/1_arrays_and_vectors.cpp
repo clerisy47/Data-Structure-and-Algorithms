@@ -20,9 +20,14 @@ void pass_by_reference(vector<int> &v)
     v.push_back(47);
 }
 
-int fun(int x)
+int fun1(int x)
 {
     return x > 5;
+}
+
+int square(int x)
+{
+    return x * x;
 }
 
 int main()
@@ -98,7 +103,13 @@ int main()
 
     reverse(v2.begin(), v2.end());
     printVec(v2);
-    cout << all_of(v2.begin(), v2.end(), fun) << " ";   // returns 0(false)
-    cout << any_of(v2.begin(), v2.end(), fun) << " ";   // returns 1(true)
-    cout << none_of(v2.begin(), v2.end(), fun) << endl; // returns 0(false)
+    cout << all_of(v2.begin(), v2.end(), fun1) << " ";   // returns 0(false)
+    cout << any_of(v2.begin(), v2.end(), fun1) << " ";   // returns 1(true)
+    cout << none_of(v2.begin(), v2.end(), fun1) << endl; // returns 0(false)
+
+    vector<int> vec = {1, 2, 3, 4, 5};
+    vector<int> result(vec.size());
+
+    transform(vec.begin(), vec.end(), result.begin(), square);
+    printVec(vec);
 }
