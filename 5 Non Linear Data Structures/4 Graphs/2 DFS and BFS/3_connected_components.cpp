@@ -1,10 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void dfs(int parent, vector<vector<int>> &graph, vector<bool> &visited)
+void dfs(int vertex, vector<vector<int>> &graph, vector<bool> &visited)
 {
-    visited[parent] = true;
-    for (auto child : graph[parent])
+    visited[vertex] = true;
+    for (auto child : graph[vertex])
     {
         if (!visited[child])
         {
@@ -19,19 +19,19 @@ int main()
     cin.tie(NULL);
     int n, m, v1, v2, ctr = 0;
     cin >> n >> m;
-    vector<vector<int>> graph(n+1);
-    vector<bool> visited(n+1);
+    vector<vector<int>> graph(n + 1);
+    vector<bool> visited(n + 1);
     for (int edge = 1; edge <= m; edge++)
     {
         cin >> v1 >> v2;
         graph[v1].push_back(v2);
         graph[v2].push_back(v1);
     }
-    for (int parent = 1; parent <= n; parent++)
+    for (int vertex = 1; vertex <= n; vertex++)
     {
-        if (!visited[parent])
+        if (!visited[vertex])
         {
-            dfs(parent, graph, visited);
+            dfs(vertex, graph, visited);
             ctr++;
         }
     }
