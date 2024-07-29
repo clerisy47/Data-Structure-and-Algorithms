@@ -19,7 +19,7 @@ public:
     {
         if (vertex == parent[vertex])
             return vertex;
-        return parent[vertex] = findParent(parent[vertex]);  // path compression
+        return parent[vertex] = findParent(parent[vertex]); // path compression
     }
 
     // TC: O(4α(n))
