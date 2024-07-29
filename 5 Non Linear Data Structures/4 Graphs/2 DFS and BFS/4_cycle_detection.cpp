@@ -1,19 +1,19 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void dfs(int parent, int grandparent, vector<vector<int>> &graph, vector<bool> &visited, bool *isCycle)
+void dfs(int vertex, int parent, vector<vector<int>> &graph, vector<bool> &visited, bool *isCycle)
 {
-    visited[parent] = true;
-    for (auto child : graph[parent])
+    visited[vertex] = true;
+    for (auto child : graph[vertex])
     {
-        if (visited[child] && child != grandparent)
+        if (visited[child] && child != parent)
         {
             *isCycle = true;
             return;
         }
         if (!visited[child])
         {
-            dfs(child, parent, graph, visited, isCycle);
+            dfs(child, vertex, graph, visited, isCycle);
         }
     }
 }
@@ -24,8 +24,8 @@ int main()
     cin.tie(NULL);
     int n, m, v1, v2;
     cin >> n >> m;
-    vector<vector<int>> graph(n+1);
-    vector<bool> visited(n+1);
+    vector<vector<int>> graph(n + 1);
+    vector<bool> visited(n + 1);
     bool isCycle = false;
 
     for (int i = 1; i <= m; i++)
