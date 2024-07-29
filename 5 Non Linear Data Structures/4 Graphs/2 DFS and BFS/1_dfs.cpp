@@ -14,7 +14,6 @@ void dfs(int node, vector<vector<int>> &graph, vector<bool> &visited, vector<int
         }
     }
     output.push_back(node); // post order transversal ie push node after pushing children
-
 }
 
 // TC: O(V+ 2E) for single directional O(N+E)
