@@ -6,7 +6,7 @@ using namespace std;
 
 void dfs(int vertex, int parent, vector<vector<int>> &graph, vector<int> &parents)
 {
-    parents[vertex]=parent;
+    parents[vertex] = parent;
     for (auto child : graph[vertex])
     {
         if (child != parent)
@@ -15,19 +15,23 @@ void dfs(int vertex, int parent, vector<vector<int>> &graph, vector<int> &parent
         }
     }
 }
-int lca(int v1, int v2, vector<int> &parent){
-    unordered_set<int> temp;
-    int i=v1;
-    while(i!=0){
+int lca(int v1, int v2, vector<int> &parent)
+{
+    set<int> temp;
+    int i = v1;
+    while (i != 0)
+    {
         temp.insert(i);
         i = parent[i];
     }
-    i=v2;
-    while(i!=0){
-        if(temp.find(i)!=temp.end()){
+    i = v2;
+    while (i != 0)
+    {
+        if (temp.find(i) != temp.end())
+        {
             return i;
         }
-        i= parent[i];
+        i = parent[i];
     }
 }
 
@@ -37,8 +41,8 @@ int main()
     cin.tie(NULL);
     int n, m, v1, v2;
     cin >> n;
-    m=n-1;
-    vector<vector<int>> graph(n+1);
+    m = n - 1;
+    vector<vector<int>> graph(n + 1);
     for (int i = 1; i <= m; i++)
     {
         cin >> v1 >> v2;
@@ -50,7 +54,7 @@ int main()
     v1 = 7;
     v2 = 2;
 
-    cout<<lca(v1, v2, parents);
+    cout << lca(v1, v2, parents);
 
     return 0;
 }
