@@ -30,7 +30,7 @@ int main()
         graph[v2].push_back(v1);
     }
     vector<int> height(n+1);
-    dfs(1, 0, graph, height);
+    dfs(0, -1, graph, height);
   for (int i = 1; i <= m; i++)
     {
         cout<< height[i]<< endl;
