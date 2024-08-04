@@ -27,4 +27,8 @@ int main()
     cout << __builtin_popcountll(n5) << endl; // number of set bits in the ll number
 
     cout << __gcd(n2, n4) << endl;
+
+    pair<int, int> r={1, 2};
+    cout<<setfill('0')<<setw(2)<<r.first<<":"<<setfill('0')<<setw(2)<<r.second<<endl; // printing in formatted way
+
 }
