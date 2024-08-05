@@ -18,6 +18,7 @@ int main()
     cout << round(1.0 * i / 10) * 10 << endl; // returns 190 rounds to nearest 10
     cout << round(i / 100) * 100 << endl;     // returns 200 rounds to nearest 100
 
+    // divides by default floors a positive number and ceils a negative number that's why it's not recommend to rely on it
     cout << floor(1.0 * 10 / 3) << endl; // returns 3
     cout << ceil(1.0 * 10 / 3) << endl;  // returns 4
 
