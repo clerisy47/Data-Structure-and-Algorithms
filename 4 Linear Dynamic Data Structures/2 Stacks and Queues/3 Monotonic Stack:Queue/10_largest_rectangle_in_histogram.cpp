@@ -23,23 +23,23 @@ int largestRectangleArea(vector<int> &heights)
 // optimal
 int largestRectangleArea(vector<int> &heights)
 {
-    deque<int> st;
+    stack<int> st;
     int max_area = 0;
     int n = heights.size();
-    for (int i = 0; i <= n; i++) // doing it till all heights are tranversed and at i=n we're clearing the deque
+    for (int i = 0; i <= n; i++) // doing it till all heights are tranversed and at i=n we're clearing the stack
     {
-        while (!st.empty() && (i == n || heights[st.back()] >= heights[i])) // calculating prev smaller element
+        while (!st.empty() && (i == n || heights[st.top()] >= heights[i])) // calculating prev smaller element
         {
-            int height = heights[st.back()];
-            st.pop_back();
+            int height = heights[st.top()];
+            st.pop();
             int width;
             if (st.empty())
                 width = i;
             else
-                width = i - st.back() - 1;
+                width = i - st.top() - 1;
             max_area = max(max_area, width * height);
         }
-        st.push_back(i);
+        st.push(i);
     }
     return max_area;
 }
