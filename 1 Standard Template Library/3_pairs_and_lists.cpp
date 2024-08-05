@@ -1,4 +1,4 @@
-// stacks and queues can be replaced by deque
+// stacks and queues can be replaced by list
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -25,21 +25,22 @@ int main()
     p_shallow_copy.first = 1;
     cout << p.first << " " << p.second << endl;
 
-    deque<int> d;
-    d.push_back(2);
-    d.push_back(3);
-    d.push_front(4);
-    d.push_front(6);
-    d.push_back(5);
+    // use list instead of stacks and queues as it is combinartion of both
+    list<int> l;
+    l.push_back(2);
+    l.push_back(3);
+    l.push_front(4);
+    l.push_front(6);
+    l.push_back(5);
 
-    d.pop_front();
-    d.pop_back();
+    l.pop_front();
+    l.pop_back();
 
-    while (!d.empty())
+    while (!l.empty())
     {
-        cout << d.back() << endl;
-        // cout << d.front() << endl;
-        d.pop_back();
+        cout << l.back() << endl;
+        // cout << l.front() << endl;
+        l.pop_back();
     }
 
     return 0;
