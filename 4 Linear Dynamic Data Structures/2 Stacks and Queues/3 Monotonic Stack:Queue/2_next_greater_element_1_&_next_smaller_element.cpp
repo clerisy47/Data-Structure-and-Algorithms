@@ -4,18 +4,18 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Brute Force: Run two for loops for next greater element and push_back it to array
+// Brute Force: Run two for loops for next greater element and push it to array
 
 // Optimal
 vector<int> nextGreaterElement(vector<int> &arr, int n)
 {
-    deque<int> st;
+    stack<int> st;
     vector<int> output(n);
     for (int i = n - 1; i >= 0; i--)
     {
-        while (!st.empty() && st.back() <= arr[i]) // For next smaller element (!st.empty() && st.back() >= arr[i])
+        while (!st.empty() && st.top() <= arr[i]) // For next smaller element (!st.empty() && st.top() >= arr[i])
         {
-            st.pop_back();
+            st.pop();
         }
         if (st.empty())
         {
@@ -23,9 +23,9 @@ vector<int> nextGreaterElement(vector<int> &arr, int n)
         }
         else
         {
-            output[i] = st.back();
+            output[i] = st.top();
         }
-        st.push_back(arr[i]);
+        st.push(arr[i]);
     }
     return output;
 }
