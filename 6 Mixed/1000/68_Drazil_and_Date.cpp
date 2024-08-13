@@ -27,10 +27,10 @@ inline void solve()
 {
     int n, n1, n2;
     cin>>n>>n1>>n2;
-    if(n2<n+n1){
+    if(n2<abs(n)+abs(n1)){
         cout<<"No"<<endl;
     }
-    else if((n2&1)^((n+n1)&1)){
+    else if((n2&1)^(abs(n)+abs(n1)&1)){
         cout<<"No"<<endl;
     }
     else{
