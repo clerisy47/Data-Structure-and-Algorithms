@@ -35,7 +35,7 @@ int main()
 
     // input and printing
     vector<int> v;
-    v = {1, 2, 3, 4, 5};
+    v = {1, 2, 3, 4, 5, 7};
     //  vector<int> v(begin(arr), end(arr)) // creating through array
     // int n;
     // cin >> n;
@@ -62,6 +62,24 @@ int main()
     int n = v.size();
     swap(v[n - 1], v[n - 2]);
 
+    if (find(v.begin(), v.end(), 0) != v.end()) // O(n)
+    {
+        cout << "Vector Contains 0" << endl;
+    }
+    else
+    {
+        cout << "Vector doesn't contain 0" << endl;
+    }
+
+    if (find(v.begin(), v.end() - 1, 0) != v.end() - 1)
+    {
+        cout << "Vector excluding last element contains 0" << endl;
+    }
+    else
+    {
+        cout << "Vector excluding last element doesn't contain 0" << endl;
+    }
+
     v.erase(v.begin() + 2);               // O(n)
     v.erase(find(v.begin(), v.end(), 5)); // O(n)
     printVec(v);
@@ -75,13 +93,14 @@ int main()
     fill(v_zeroes.begin(), v_zeroes.end(), 0);
     // int arr[n]; fill(arr, arr+ n, 0); or memset(a, 0, sizeof(a)); memset faster
 
-    // Copying of vectors are shallow copy by default
-    vector<int> v_copy = v;
+    // Copying of vectors are deep copy by default
+    vector<int> v_copy_deep = v;
     v.push_back(7);
-    printVec(v_copy);
+    printVec(v_copy_deep);
 
-    // for shallow copy
-    copy(v.begin(), v.end(), v_copy.begin());
+    // // for shallow copy
+    vector<int> v_copy_shallow(v.size());
+    copy(v.begin(), v.end(), v_copy_shallow.begin());
 
     // but in functions they do deep copy by default
     // Pass by value
@@ -93,10 +112,10 @@ int main()
     printVec(v);
 
     vector<int> v2 = {4, 6, 8, 25, 7, 4};
-    int min = *min_element(v2.begin(), v2.end());          // it returns reference to the min element
-    int max = *max_element(v2.begin(), v2.end());          // ie for an array reference, for a vector iterator but both can be dereferenced with *
-    int sum = accumulate(v2.begin(), v2.end(), 0);         // 0 is initial. sum doesn't return pointer
-    long long sum = accumulate(v2.begin(), v2.end(), 0LL); // for long long addition must use 0LL
+    int min = *min_element(v2.begin(), v2.end());            // it returns reference to the min element
+    int max = *max_element(v2.begin(), v2.end());            // ie for an array reference, for a vector iterator but both can be dereferenced with *
+    int sum = accumulate(v2.begin(), v2.end(), 0);           // 0 is initial. sum doesn't return pointer
+    long long sumll = accumulate(v2.begin(), v2.end(), 0LL); // for long long addition must use 0LL
 
     int ct = count(v2.begin(), v2.end(), 4);
     cout << min << " " << max << " " << sum << " " << ct << endl;
