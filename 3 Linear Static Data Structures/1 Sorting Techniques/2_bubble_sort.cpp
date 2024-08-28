@@ -18,15 +18,11 @@ void bubble_sort(vector<int> &nums)
 {
     for (int i = 0; i <= nums.size() - 2; i++)
     {
-        bool swapped = false; // so that when the array is alread sorted, no need to loop again after looping once
-        for (int j = 0; j <= nums.size() - 1 - j - 1; j++)
-        { // Upto n-1-j-1 because we are taking nums[j] and nums[j+1]
+        for (int j = 0; j <= nums.size() - 2 - i; j++)
+        { // Upto n-2-j because we are taking nums[j] and nums[j+1]
             if (nums[j] > nums[j + 1])
             {
-                int temp = nums[j];
-                nums[j] = nums[j + 1];
-                nums[j + 1] = temp;
-                swapped = true;
+                swap(nums[j], nums[j + 1]);
             }
         }
     }
@@ -45,15 +41,12 @@ void bubble_sort(vector<int> &nums, int n)
         return;
     }
 
-    bool swapped = false;
+    bool swapped = false; // so that if swap didn't happen stop the loop. (could have been done in the iterative approach as well)
     for (int j = 0; j < n - 1; j++)
     {
         if (nums[j] > nums[j + 1])
         {
-            int temp = nums[j + 1];
-            nums[j + 1] = nums[j];
-            nums[j] = temp;
-            swapped = true;
+            swap(nums[j], nums[j + 1]);
         }
     }
     if (!swapped)
