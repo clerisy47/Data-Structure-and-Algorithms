@@ -16,9 +16,7 @@ void insertion_sort(vector<int> &nums)
     {
         for (int j = i; j >= 1 && nums[j] < nums[j - 1]; j--)
         {
-            int temp = nums[j];
-            nums[j] = nums[j - 1];
-            nums[j - 1] = temp;
+            swap(nums[j], nums[j - 1]);
         }
     }
 }
@@ -33,9 +31,7 @@ void insertion_sort(vector<int> &nums, int n)
 
     for (int j = n; j >= 1 && nums[j] < nums[j - 1]; j--)
     {
-        int temp = nums[j];
-        nums[j] = nums[j - 1];
-        nums[j - 1] = temp;
+        swap(nums[j], nums[j - 1]);
     }
 }
 
