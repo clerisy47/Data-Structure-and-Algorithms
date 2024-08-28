@@ -14,17 +14,15 @@ void selection_sort(vector<int> &nums)
 {
     for (int i = 0; i <= nums.size() - 2; i++)
     {
-        int min_i = i;
+        int mini = i;
         for (int j = i + 1; j <= nums.size() - 1; j++)
         {
-            if (nums[j] < nums[min_i])
+            if (nums[j] < nums[mini])
             {
-                min_i = j;
+                mini = j;
             }
         }
-        int temp = nums[i];
-        nums[i] = nums[min_i];
-        nums[min_i] = temp;
+        swap(nums[i], nums[mini]);
     }
 }
 
