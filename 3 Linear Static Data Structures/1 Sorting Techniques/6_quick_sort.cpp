@@ -11,7 +11,7 @@ int partition(vector<int> &nums, int left, int right)
         if (nums[j] < pivot)
         {
             i++;
-            swap(nums[i], nums[j]); // if first numbers are shorted, they swaps with themselves.
+            swap(nums[i], nums[j]); // if first numbers are sorted, they swaps with themselves.
         }
     }
     swap(nums[i + 1], nums[right]);
