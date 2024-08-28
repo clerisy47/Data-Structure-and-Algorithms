@@ -6,7 +6,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void bubble_sort(vector<int> &nums) // same as insetion sort just replace 1 with gap and add for loop for decreasing gap
+void shell_sort(vector<int> &nums) // same as insetion sort just replace 1 with gap and add for loop for decreasing gap
 {
     for (int gap = nums.size() / 2; gap > 0; gap /= 2)
     {
@@ -15,9 +15,7 @@ void bubble_sort(vector<int> &nums) // same as insetion sort just replace 1 with
         {
             for (int j = i; j >= gap && nums[j] < nums[j - gap]; j--)
             {
-                int temp = nums[j];
-                nums[j] = nums[j - 1];
-                nums[j - 1] = temp;
+                swap(nums[j], nums[j - 1]);
             }
         }
     }
