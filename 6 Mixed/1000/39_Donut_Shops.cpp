@@ -15,9 +15,9 @@ signed main()
     cin >> tc;
     while (tc--)
     {
-        int n, nn, nnn;
-        cin >> n >> nn >> nnn;
-        if (n >= nnn)
+        int n, n1, n2;
+        cin >> n >> n1 >> n2;
+        if (n >= n2)
         {
             cout << -1 << " ";
         }
@@ -25,13 +25,13 @@ signed main()
         {
             cout << 1 << " ";
         }
-        if (nnn >= n * nn)
+        if (n2 >= n * n1)
         {
             cout << -1 << endl;
         }
         else
         {
-            cout << nn << endl;
+            cout << n1 << endl;
         }
     }
     return 0;
