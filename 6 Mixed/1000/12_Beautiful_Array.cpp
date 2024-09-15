@@ -1,4 +1,4 @@
-// https://codeforces.com/problemset/problem/1725/B
+// https://codeforces.com/problemset/problem/1715/B
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -26,35 +26,49 @@ constexpr int pctr(int x) { return __builtin_popcountll(x); }
 #define ceil(x) (int) ceil(x)
 #define floor(x) (int) floor(x)
 
-bool comparator(int n, int n1){
-    return n>n1;
-}
-
 inline void solve()
 {
-    int n, n1;
-    cin>>n>>n1;
-    vector<int> v;
-    cinv(v, n);
-    sort(v.begin(), v.end(), comparator);
-    int r=0;
-    for(int i=0; i<=v.size()-1; i++){
-        int t= ceil(1.0*(n1+1)/v[i]);
-        if(t<=n){
-            n-= t;
-            r++;
+    int n, n1, n2, n3;
+    cin>>n>>n1>>n2>>n3;
+    int t= n1*n2;
+    if(t>n3){
+        cout<<-1<<endl;
+    }
+    else if(n3-t<=n1-1){
+        for(int i=0; i<=n-2; i++){
+            cout<<0<<" ";
+        }
+        cout<<n3<<endl;
+    }
+    else{
+        vector<int> v;
+        t+=n1-1;
+        int sum=t;
+        v.push_back(t);
+        while(sum+n1-1<=n3 && (int)v.size()<=n-2){
+            v.push_back(n1-1);
+            sum+=n1-1;
+        }
+        v.push_back(n3-sum);
+        if(v.back()>=n1){
+            cout<<-1<<endl;
+        }
+        else{
+            for(;v.size()!=n;){
+                v.push_back(0);
+            }
+            coutv(v);
         }
     }
-    cout<<r<<endl;
 }
 
 
 signed main() {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
-    int tc=1;
-    // cin >> tc;
-    while(tc--) {
+    int tc;
+    cin >> tc;
+    for(int i=0; i<=tc-1; i++){
         solve();
     }
     return 0;
