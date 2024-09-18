@@ -79,7 +79,7 @@ int main()
     {
         cout << "Vector excluding last element doesn't contain 0" << endl;
     }
-
+    v.insert(v.begin() + 1, 5);           // O(n)
     v.erase(v.begin() + 2);               // O(n)
     v.erase(find(v.begin(), v.end(), 5)); // O(n)
     printVec(v);
@@ -116,9 +116,8 @@ int main()
     int max = *max_element(v2.begin(), v2.end());            // ie for an array reference, for a vector iterator but both can be dereferenced with *
     int sum = accumulate(v2.begin(), v2.end(), 0);           // 0 is initial. sum doesn't return pointer
     long long sumll = accumulate(v2.begin(), v2.end(), 0LL); // for long long addition must use 0LL
-
     int ct = count(v2.begin(), v2.end(), 4);
-    cout << min << " " << max << " " << sum << " " << ct << endl;
+    cout << max << " " << sum << " " << ct << endl;
 
     reverse(v2.begin(), v2.end());
     printVec(v2);
@@ -129,6 +128,7 @@ int main()
     vector<int> vec = {1, 2, 3, 4, 5};
     vector<int> result(vec.size());
 
-    transform(vec.begin(), vec.end(), result.begin(), square);
+    transform(vec.begin(), vec.end(), result.begin(), square); // every members are squared
+    rotate(vec.begin(), v.begin() + 3, v.end());               // the element with index 3 becomes the first element after rotation
     printVec(vec);
 }
