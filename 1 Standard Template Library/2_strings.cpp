@@ -14,26 +14,29 @@ int main()
     string s2 = s1.substr(3, 2);
 
     cout << "String is: " << s2 << endl;
+    cout<<string(5, 'a')<<endl; // create a string og 5 as
 
-    string s = "dog:cat";
+    string s3 = "dogfsdfdsklds:cat";
 
     // Find position of ':' using find()
-    int pos = s.find(":");
+    int pos = s3.find(":");
 
-    // Copy substring after pos
-    string sub = s.substr(pos + 1);
-
+    s3[4] = tolower(s3[4]); // if there is no valid letter or letter is already lower, it doesn't do anything
+    s3[5] = toupper(s3[5]);
     // removes 1 character starting from 0th character
-    s.erase(0, 1);
+    s3.erase(0, 1);
 
-    cout << "String is: " << sub << endl;
+    cout << s3 << endl;
 
-    // Copy substring before pos
-    // Extract everything before the ":" in the string
-    // "dog:cat".
-    sub = s.substr(0, pos);
+    // Copy substring starting from index 5
+    string sub = s3.substr(5);
 
-    cout << "String is: " << sub;
+    cout << "SubString is: " << sub << endl;
+
+    // Copy substring starting from index 5 of length 4 
+    sub = s3.substr(5, 4);
+
+    cout << "SubString is: " << sub<<endl;
 
     // checks for substring
     s1 = "Imissubunny";
@@ -44,10 +47,10 @@ int main()
     transform(s2.begin(), s2.end(), s2.begin(), ::toupper);
     cout << s1 << " " << s2 << endl;
 
-    string s3 = "5032";
-    int a3 = stoi(s3);
-    long long a4 = stoll(s3);   // use this for long long
-    long double a5 = stold(s3); // for long double
+    string s4 = "5032";
+    int a3 = stoi(s4);          // string to integer conversion
+    long long a4 = stoll(s4);   // use this for long long
+    long double a5 = stold(s4); // for long double
 
     // for any containers .size() is O(1)
 }
