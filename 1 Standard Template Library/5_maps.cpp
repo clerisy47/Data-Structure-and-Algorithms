@@ -12,7 +12,7 @@ int main()
         cout << x.first << " " << x.second << endl; // printed in sorted way // acess in O(logn) for each elements ie nlog(n)
     }
     find(m.begin(), m.end(), "cde"); // returns it's iterator if present or else returns mp.end();
-    m.find("cde");                   // same function as above but does a binary search and doesn't work in vector
+    m.find("cde");                   // same function as above but does a binary search
     m.erase("cde");                  // O(logn)
     // iterating reversely
     for (auto it = m.rbegin(); it != m.rend(); ++it)
@@ -24,7 +24,7 @@ int main()
 
     // In unordered map, hashing is done In ordered map but red black trees (self balancing trees) is used for implementation
     // insertion and acessing time complexity in O(1) on average (worst case during collision O(n))
-    // Only int, long, double, float, char, string can only be hashed and hence used in unordered map
+    // Only int, long, double, float, char, string can only be hashed and hence used as first element in unordered map. Any datatype can be used as second element.
     // In maps we can use it as we can compare then s1>s2 and so on.
 
     // Let n = size of map, use unordered map when n is small and map when n is large (when n is large collision occur in unordered_map which causes long time)
