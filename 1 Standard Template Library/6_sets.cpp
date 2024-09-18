@@ -4,19 +4,19 @@ using namespace std;
 int main()
 {
     set<string> s;
-    s.insert("abc");
-    s.insert("def");                           // O(logn)
+    s.insert("abc"); // O(logn)
+    s.insert("def"); // O(logn)
+    s.erase("abc");
     cout << (s.find("def") == s.end()) << " "; // 1: Not Present 0: Present O(logn)
 
     // same difference as ordered map and unordered map
     unordered_set<string> us;
-    s.insert("abc");
-    s.insert("def"); // O(1)
-    s.insert("ghi");
-    s.erase(s.begin());                  // O(1) deletes first element
-    s.erase(--s.end());                  //  deletes last element
-    cout << (s.find("poop") == s.end()); // 1: Not Present 0: Present O(1)
-    cout << endl;
+    us.insert("abc");
+    us.insert("def"); // O(1)
+    us.insert("ghi");
+
+    us.erase("abc");                             // O(1)
+    cout << (s.find("poop") == s.end()) << endl; // 1: Not Present 0: Present O(1)
     for (auto x : s)
     {
         cout << x << " ";
@@ -33,8 +33,7 @@ int main()
 
     bool isSubset = includes(a.begin(), a.end(), b.begin(), b.end());
 
-    // Insertion and acess is O(logn) where n varies according to the size of set
-    // Duplicates can be used
+    // Multisets allow duplicates.
     // It will sort like regular sets as it is implemented in similar way ie red black trees (self balancing trees)
 
     multiset<string> ms;
@@ -58,4 +57,6 @@ int main()
     {
         cout << *it << " ";
     }
+    ms.erase(ms.begin()); // deletes first element
+    ms.erase(--ms.end()); // deletes last element
 }
