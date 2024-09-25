@@ -1,16 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
-#ifdef ONLINE_JUDGE
-#define debug(...) 47
-#else
-#include "debug.h"
-#endif
 #define int long long
 #define float long double
 #define endl '\n'
 #define inf LLONG_MAX >> 1
-#define coutb(CONDITION) cout << (CONDITION ? "YES" : "NO") << endl;
-#define __lcm(x, y) ((x) * (y) / __gcd((x), (y)))
 template <typename T>
 istream& operator>>(istream& in, vector<T>& vec) { for (auto& elem : vec) in >> elem; return in; }
 template <typename T>
@@ -27,7 +20,7 @@ constexpr int pctr(int x) { return __builtin_popcountll(x); }
 int mod = 1000000007ll;
 
 
-
+// prefix sum
 inline void solve()
 {
     int n, n1;
@@ -36,6 +29,8 @@ inline void solve()
     cin>>v;
     vector<int> v1(n);
     v1[0]=v[0];
+
+    // if original array can be modified just do v[i]^=v[i-1] (similarly for sum)
     for(int i=1; i<=n-1; i++){
         v1[i]=v[i]^v1[i-1];
     }
