@@ -29,11 +29,9 @@ int main()
 
     cout << __gcd(n2, n4) << endl;
 
-    pair<int, int> r={1, 2};
-    cout<<setfill('0')<<setw(2)<<r.first<<":"<<setfill('0')<<setw(2)<<r.second<<endl; // printing in formatted way
-    
+    pair<int, int> r = {1, 2};
+    cout << setfill('0') << setw(2) << r.first << ":" << setfill('0') << setw(2) << r.second << endl; // printing in formatted way
+
     long double d = 2.6666666666667;
-    cout<<setprecision(14)<<d<<endl; // printing with different precision
-
-
+    cout << setprecision(14) << d << endl; // printing with different precision
 }
