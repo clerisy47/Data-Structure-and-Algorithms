@@ -1,0 +1,3 @@
+For finding number of subsequences, number of starting point * number of ending points.
+Total number of subsequences in an array = n^2
+Total number of subarrays in an array = n+n-1+n-2+n-3+....+2+1 = Σi = n*(n+1)/2
